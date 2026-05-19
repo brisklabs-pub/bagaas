@@ -216,11 +216,9 @@ section {
 
 /* FOOTER */
 footer {
-  background: #0f172a;
+  background: #006936;
   color: white;
-
   padding: 60px 24px;
-
   text-align: center;
 }
 
@@ -228,16 +226,13 @@ footer {
   display: flex;
   justify-content: center;
   gap: 24px;
-
   margin-bottom: 30px;
-
   flex-wrap: wrap;
 }
 
 .footer-links a {
   color: #cbd5e1;
 }
-
 .footer-school {
   font-size: 24px;
   font-weight: 700;
@@ -258,17 +253,13 @@ footer {
 /* MOBILE */
 
 @media (max-width: 900px) {
-
   .nav-links {
     display: none;
   }
-
   .hero-content h2 {
     font-size: 42px;
   }
-
   .hero-content p {
     font-size: 17px;
   }
-
 }

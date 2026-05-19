@@ -1,0 +1,178 @@
+/* FOOTER */
+
+.footer {
+  background: #0f172a;
+  color: white;
+  padding-top: 80px;
+  padding-bottom: 30px;
+  margin-top: 100px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns:
+    3fr 1fr 1fr 1fr;
+  gap: 40px;
+}
+
+/* BRAND */
+
+.footer-brand {
+
+  max-width: 420px;
+}
+
+/* TOP ROW */
+
+.footer-brand-top {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+/* LOGO */
+.footer-logo {
+  width: 68px;
+  height: 68px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.footer-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* TITLE */
+.footer-brand h3 {
+  font-size: 20px;
+  text-align: start;
+  line-height: 1.3;
+  margin: 0;
+}
+
+/* DESCRIPTION */
+.footer-brand p {
+  color: #94a3b8;
+  line-height: 1.8;
+  font-size: 14px;
+}
+
+/* COLUMN */
+.footer-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-column h4 {
+
+  font-size: 16px;
+
+  margin-bottom: 18px;
+
+  color: white;
+}
+
+.footer-column a,
+.footer-column p {
+
+  color: #94a3b8;
+
+  text-decoration: none;
+
+  margin-bottom: 12px;
+
+  font-size: 14px;
+
+  line-height: 1.7;
+
+  transition: 0.2s ease;
+}
+
+.footer-column a:hover {
+
+  color: white;
+}
+
+/* SOCIALS */
+
+.footer-socials {
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 12px;
+}
+
+/* BOTTOM */
+
+.footer-bottom {
+
+  margin-top: 60px;
+
+  padding-top: 24px;
+
+  border-top:
+    1px solid rgba(255,255,255,0.08);
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  color: #64748b;
+
+  font-size: 14px;
+}
+
+/* TABLET */
+
+@media (max-width: 1000px) {
+
+  .footer-grid {
+
+    grid-template-columns:
+      repeat(2, 1fr);
+  }
+
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+  .footer {
+
+    padding-top: 60px;
+  }
+
+  .footer-grid {
+
+    grid-template-columns:
+      1fr;
+
+    gap: 34px;
+  }
+
+  .footer-bottom {
+
+    flex-direction: column;
+
+    gap: 12px;
+
+    text-align: center;
+  }
+
+  .footer-brand h3 {
+
+    font-size: 20px;
+  }
+
+}
