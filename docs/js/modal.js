@@ -96,4 +96,98 @@ function copyLink() {
     alert("Link copied!");
 }
 
+// Acticles
 loadArticles();
+
+//=====================================================================
+let facilities = [];
+let currentFacility = 0;
+
+async function loadFacilities() {
+
+  const response = await fetch("https://raw.githubusercontent.com/brisklabs-pub/bagaas/refs/heads/main/docs/data/facilities.json");
+  facilities = await response.json();
+
+  const facilityGrid =
+    document.getElementById(
+      "facilityGrid"
+    );
+
+  facilities.forEach(
+    (facility, index) => {
+
+      const item =
+        document.createElement("div");
+
+      item.className =
+        "facility-item";
+
+      item.innerHTML = `
+        <img
+          src="${facility.image}"
+          alt="${facility.title}"
+        />
+
+        <div class="facility-label">
+
+          <h3>
+            ${facility.title}
+          </h3>
+
+        </div>
+      `;
+
+      item.onclick = () =>
+        openFacilityModal(index);
+
+      facilityGrid.appendChild(item);
+    }
+  );
+}
+
+function openFacilityModal(index) {
+  currentFacility = index;
+  updateFacilityModal();
+  document.getElementById(
+    "facilityModal"
+  ).classList.add("show");
+}
+
+function closeFacilityModal() {
+
+  document.getElementById(
+    "facilityModal"
+  ).classList.remove("show");
+}
+
+function nextFacility() {
+  currentFacility++;
+  if (currentFacility >= facilities.length) {
+    currentFacility = 0;
+  }
+  updateFacilityModal();
+}
+
+function prevFacility() {
+  currentFacility--;
+  if (currentFacility < 0) {
+    currentFacility = facilities.length - 1;
+  }
+  updateFacilityModal();
+}
+
+function updateFacilityModal() {
+  const facility = facilities[currentFacility];
+  document.getElementById(
+    "facilityModalImage"
+  ).src =
+    facility.image;
+
+  document.getElementById(
+    "facilityModalTitle"
+  ).innerText =
+    facility.title;
+}
+
+// Facilities
+loadFacilities();

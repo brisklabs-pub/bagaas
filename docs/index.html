@@ -76,122 +76,20 @@
     </section>
 
     <!-- FACILITIES -->
-<!-- FACILITIES -->
-<section id="facilities">
-
-  <div class="container">
-
-    <div class="section-title">
-
-      <h2>
-        Campus Facilities
-      </h2>
-
-      <p>
-        Modern learning environments designed
-        to support academic excellence,
-        creativity, and student development.
-      </p>
-
-    </div>
-
-    <!-- CAROUSEL -->
-    <div class="facility-carousel">
-
-      <!-- ITEM -->
-      <div class="facility-item">
-
-        <img
-          src="https://picsum.photos/1200/700?random=21"
-          alt="Library"
-        />
-
-        <div class="facility-label">
-          <h3>Library</h3>
-          <p>
-            Quiet study areas with digital
-            and printed learning resources.
-          </p>
+    <section id="facilities">
+        <div class="container">
+            <div class="section-title">
+                <h2> Campus Facilities</h2>
+                <p>
+                    Modern learning spaces designed
+                    to support academic excellence,
+                    creativity, and student growth.
+                </p>
+            </div>
+            <!-- GRID -->
+            <div class="facility-grid" id="facilityGrid"></div>
         </div>
-
-      </div>
-
-      <!-- ITEM -->
-      <div class="facility-item">
-
-        <img
-          src="https://picsum.photos/1200/700?random=22"
-          alt="Computer Laboratory"
-        />
-
-        <div class="facility-label">
-          <h3>Computer Laboratory</h3>
-          <p>
-            Modern computers and internet
-            access for technology learning.
-          </p>
-        </div>
-
-      </div>
-
-      <!-- ITEM -->
-      <div class="facility-item">
-
-        <img
-          src="https://picsum.photos/1200/700?random=23"
-          alt="Cooking Laboratory"
-        />
-
-        <div class="facility-label">
-          <h3>Cooking Laboratory</h3>
-          <p>
-            Hands-on culinary training and
-            food preparation activities.
-          </p>
-        </div>
-
-      </div>
-
-      <!-- ITEM -->
-      <div class="facility-item">
-
-        <img
-          src="https://picsum.photos/1200/700?random=24"
-          alt="Covered Court"
-        />
-
-        <div class="facility-label">
-          <h3>Covered Court</h3>
-          <p>
-            Multi-purpose sports facility
-            for athletics and school events.
-          </p>
-        </div>
-
-      </div>
-
-      <!-- ITEM -->
-      <div class="facility-item">
-        <img
-          src="https://picsum.photos/1200/700?random=25"
-          alt="Forestry Nursery"
-        />
-
-        <div class="facility-label">
-          <h3>Forestry Area Nursery</h3>
-          <p>
-            Environmental learning space for
-            planting and sustainability projects.
-          </p>
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
+    </section>
 
     <!-- ABOUT -->
     <section id="about">
@@ -297,6 +195,31 @@
             </div>
 
         </div>
+
+    </div>
+
+
+    <!-- FACILITY MODAL -->
+
+    <!-- MODAL -->
+    <div class="facility-modal" id="facilityModal">
+
+        <button class="facility-close" onclick="closeFacilityModal()">
+            ×
+        </button>
+
+        <button class="facility-nav prev" onclick="prevFacility()">
+            ❮
+        </button>
+
+        <img id="facilityModalImage" class="facility-modal-image" src="" alt="" />
+
+        <div class="facility-modal-title" id="facilityModalTitle">
+        </div>
+
+        <button class="facility-nav next" onclick="nextFacility()">
+            ❯
+        </button>
 
     </div>
 
