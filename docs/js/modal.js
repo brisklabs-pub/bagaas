@@ -6,7 +6,7 @@ const newsGrid =
 async function loadArticles() {
 
   const response =
-    await fetch("../articles/articles.json");
+    await fetch("https://raw.githubusercontent.com/brisklabs-pub/bagaas/refs/heads/main/docs/articles/articles.json");
 
   const articles =
     await response.json();
