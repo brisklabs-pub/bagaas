@@ -1,0 +1,31 @@
+[
+  {
+    "title": "Library",
+    "image": "https://picsum.photos/1200/700?random=21",
+    "description": "Quiet study areas with digital and printed learning resources."
+  },
+
+  {
+    "title": "Computer Laboratory",
+    "image": "https://picsum.photos/1200/700?random=22",
+    "description": "Modern computers and internet access for technology learning."
+  },
+
+  {
+    "title": "Cooking Laboratory",
+    "image": "https://picsum.photos/1200/700?random=23",
+    "description": "Hands-on culinary training and food preparation activities."
+  },
+
+  {
+    "title": "Covered Court",
+    "image": "https://picsum.photos/1200/700?random=24",
+    "description": "Multi-purpose sports facility for athletics and school events."
+  },
+
+  {
+    "title": "Forestry Area Nursery",
+    "image": "https://picsum.photos/1200/700?random=25",
+    "description": "Environmental learning space for planting and sustainability projects."
+  }
+]

@@ -1,25 +1,23 @@
 const newsGrid =
-  document.getElementById(
-    "newsGrid"
-  );
+    document.getElementById(
+        "newsGrid"
+    );
 
 async function loadArticles() {
+    const response =
+        await fetch("https://raw.githubusercontent.com/brisklabs-pub/bagaas/refs/heads/main/docs/data/articles.json");
+    const articles =
+        await response.json();
 
-  const response =
-    await fetch("https://raw.githubusercontent.com/brisklabs-pub/bagaas/refs/heads/main/docs/articles/articles.json");
+    articles.forEach((article) => {
 
-  const articles =
-    await response.json();
+        const card =
+            document.createElement("div");
 
-  articles.forEach((article) => {
+        card.className =
+            "news-card";
 
-    const card =
-      document.createElement("div");
-
-    card.className =
-      "news-card";
-
-    card.innerHTML = `
+        card.innerHTML = `
       <img
         src="${article.thumb}"
         alt="${article.title}"
@@ -46,56 +44,56 @@ async function loadArticles() {
       </div>
     `;
 
-    card.onclick = () =>
-      openArticleModal(article);
+        card.onclick = () =>
+            openArticleModal(article);
 
-    newsGrid.appendChild(card);
+        newsGrid.appendChild(card);
 
-  });
+    });
 
 }
 
 function openArticleModal(article) {
 
-  document.getElementById(
-    "modalTitle"
-  ).innerText =
-    article.title;
+    document.getElementById(
+        "modalTitle"
+    ).innerText =
+        article.title;
 
-  document.getElementById(
-    "modalDate"
-  ).innerText =
-    article.datetime;
+    document.getElementById(
+        "modalDate"
+    ).innerText =
+        article.datetime;
 
-  document.getElementById(
-    "modalContent"
-  ).innerText =
-    article.content;
+    document.getElementById(
+        "modalContent"
+    ).innerText =
+        article.content;
 
-  document.getElementById(
-    "modalImage"
-  ).src =
-    article.thumb;
+    document.getElementById(
+        "modalImage"
+    ).src =
+        article.thumb;
 
-  document.getElementById(
-    "articleModal"
-  ).classList.add("show");
+    document.getElementById(
+        "articleModal"
+    ).classList.add("show");
 }
 
 function closeArticleModal() {
 
-  document.getElementById(
-    "articleModal"
-  ).classList.remove("show");
+    document.getElementById(
+        "articleModal"
+    ).classList.remove("show");
 }
 
 function copyLink() {
 
-  navigator.clipboard.writeText(
-    window.location.href
-  );
+    navigator.clipboard.writeText(
+        window.location.href
+    );
 
-  alert("Link copied!");
+    alert("Link copied!");
 }
 
 loadArticles();
