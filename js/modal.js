@@ -5,7 +5,7 @@ const newsGrid =
 
 async function loadArticles() {
     const response =
-        await fetch("https://raw.githubusercontent.com/brisklabs-pub/bagaas/refs/heads/main/docs/data/articles.json");
+        await fetch("https://raw.githubusercontent.com/brisklabs-pub/bagaas/refs/heads/main/data/articles.json");
     const articles =
         await response.json();
 
@@ -105,7 +105,7 @@ let currentFacility = 0;
 
 async function loadFacilities() {
 
-  const response = await fetch("https://raw.githubusercontent.com/brisklabs-pub/bagaas/refs/heads/main/docs/data/facilities.json");
+  const response = await fetch("https://raw.githubusercontent.com/brisklabs-pub/bagaas/refs/heads/main/data/facilities.json");
   facilities = await response.json();
 
   const facilityGrid =
