@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zkuela Academy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./css/main.css"/>
+    <link rel="stylesheet" href="./css/news.css"/>
+
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <header>
+
+    <div class="container navbar">
+
+      <div class="brand">
+
+        <div class="brand-logo"></div>
+
+        <h1>Zkuela Academy</h1>
+
+      </div>
+
+      <div class="nav-links">
+
+        <a href="#">HOME</a>
+        <a href="#articles">ARTICLES</a>
+        <a href="#facilities">FACILITIES</a>
+        <a href="#about">ABOUT</a>
+
+        <a href="#" class="login-btn">
+          LOGIN
+        </a>
+
+      </div>
+
+    </div>
+
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+
+    <div class="hero-slide"></div>
+    <div class="hero-slide"></div>
+    <div class="hero-slide"></div>
+
+    <div class="hero-content">
+
+      <div class="container">
+
+        <h2>
+          Building Future Leaders Through Quality Education
+        </h2>
+
+        <p>
+          Empowering students with innovation,
+          leadership, and academic excellence
+          for a brighter tomorrow.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ARTICLES -->
+  <section id="articles">
+
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Latest News & Articles</h2>
+        <p>
+          Stay updated with campus events,
+          announcements, and student activities.
+        </p>
+      </div>
+
+      <div class="news-grid"
+  id="newsGrid"
+></div>
+
+
+    </div>
+
+  </section>
+
+  <!-- FACILITIES -->
+  <section id="facilities">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>Campus Facilities</h2>
+
+        <p>
+          Modern facilities built to support
+          learning, creativity, and student growth.
+        </p>
+
+      </div>
+
+      <div class="facility-scroll">
+
+        <div class="facility-card">
+
+          <img
+            src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?q=80&w=1200"
+            alt="Library"
+          />
+
+          <div class="facility-body">
+
+            <h3>Modern Library</h3>
+
+            <p>
+              Spacious learning environment
+              with digital resources.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+
+    <div class="container">
+
+      <div class="about">
+
+        <img
+          src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200"
+          alt="About School"
+        />
+
+        <div class="about-content">
+
+          <h2>
+            About Zkuela Academy
+          </h2>
+
+          <p>
+            Zkuela Academy is committed to
+            delivering high-quality education
+            through innovation, leadership,
+            and student-centered learning.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+
+    <div class="footer-links">
+
+      <a href="#">Terms</a>
+      <a href="#">Privacy</a>
+      <a href="#">Contact</a>
+
+    </div>
+
+    <div class="footer-school">
+      Zkuela Academy
+    </div>
+
+    <div class="footer-info">
+      Iloilo City, Philippines
+    </div>
+
+    <div class="footer-info">
+      Email: info@zkuela.com
+    </div>
+
+    <div class="footer-build">
+      Built by: brisklabs
+    </div>
+
+  </footer>
+
+
+    <!-- ARTICLE MODAL -->
+    <div
+    class="article-modal"
+    id="articleModal"
+    >
+
+    <div class="article-modal-content">
+
+        <button
+        class="modal-close"
+        onclick="closeArticleModal()"
+        >
+        ×
+        </button>
+
+        <img
+        id="modalImage"
+        class="modal-image"
+        src=""
+        alt="Article"
+        />
+
+        <div class="modal-body">
+
+        <span
+            class="modal-date"
+            id="modalDate"
+        >
+        </span>
+
+        <h2 id="modalTitle"></h2>
+
+        <p id="modalContent"></p>
+
+        <!-- SHARE -->
+        <div class="share-row">
+
+            <button
+            onclick="shareFacebook()"
+            class="share-btn"
+            >
+            Facebook
+            </button>
+
+            <button
+            onclick="shareTwitter()"
+            class="share-btn"
+            >
+            Twitter
+            </button>
+
+            <button
+            onclick="shareEmail()"
+            class="share-btn"
+            >
+            Email
+            </button>
+
+            <button
+            onclick="copyLink()"
+            class="share-btn"
+            >
+            Copy Link
+            </button>
+
+        </div>
+
+        </div>
+
+    </div>
+
+    </div>
+
+    <!-- Script -->
+     <script src="./js/modal.js"></script>
+
+
+</body>
+
+</html>
