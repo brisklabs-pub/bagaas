@@ -11,8 +11,7 @@
     <link rel="stylesheet" href="./css/main.css" />
     <link rel="stylesheet" href="./css/news.css" />
     <link rel="stylesheet" href="./css/facilities.css" />
-
-
+    <link rel="stylesheet" href="./css/about.css" />
 </head>
 
 <body>
@@ -92,27 +91,98 @@
     </section>
 
     <!-- ABOUT -->
+    <!-- ABOUT -->
     <section id="about">
 
         <div class="container">
 
-            <div class="about">
+            <div class="about-layout">
 
-                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200"
-                    alt="About School" />
+                <!-- IMAGE -->
+                <div class="about-image">
 
+                    <img src="https://picsum.photos/1200/900?random=41" alt="Malinao School for Philippine Craftsmen" />
+
+                </div>
+
+                <!-- CONTENT -->
                 <div class="about-content">
 
+                    <span class="about-tag">
+                        ABOUT BAGAAS
+                    </span>
+
                     <h2>
-                        About Zkuela Academy
+                        Preserving Craftsmanship,
+                        Culture, and Community
                     </h2>
 
                     <p>
-                        Zkuela Academy is committed to
-                        delivering high-quality education
-                        through innovation, leadership,
-                        and student-centered learning.
+                        The word <strong>"Bagaas"</strong>
+                        refers to raw materials traditionally
+                        used by Filipino craftsmen in creating
+                        handcrafted products, furniture,
+                        woven materials, and local artistry.
+                        It symbolizes creativity, hard work,
+                        sustainability, and the rich heritage
+                        of Philippine craftsmanship.
                     </p>
+
+                    <p>
+                        <strong>Malinao School for Philippine
+                        Craftsmen (MSPC)</strong> was founded to empower
+                        students through practical skills,
+                        innovation, and hands-on education
+                        rooted in Filipino values and culture.
+                        The institution continues to nurture
+                        future craftsmen, leaders, and
+                        professionals through modern
+                        education and technical excellence.
+                    </p>
+
+                    <p>
+                        Guided by discipline, creativity,
+                        and community collaboration,
+                        the school promotes lifelong
+                        learning while preserving the
+                        identity and traditions of local
+                        craftsmanship for future generations.
+                    </p>
+
+                    <!-- STATS -->
+                    <div class="about-stats">
+
+                        <div class="about-stat">
+
+                            <h3>50+</h3>
+
+                            <span>
+                                Years of Heritage
+                            </span>
+
+                        </div>
+
+                        <div class="about-stat">
+
+                            <h3>2,000+</h3>
+
+                            <span>
+                                Active Students
+                            </span>
+
+                        </div>
+
+                        <div class="about-stat">
+
+                            <h3>100</h3>
+
+                            <span>
+                                Faculty & Staff
+                            </span>
+
+                        </div>
+
+                    </div>
 
                 </div>
 
@@ -200,26 +270,16 @@
 
 
     <!-- FACILITY MODAL -->
-
-    <!-- MODAL -->
     <div class="facility-modal" id="facilityModal">
 
         <button class="facility-close" onclick="closeFacilityModal()">
             ×
         </button>
-
-        <button class="facility-nav prev" onclick="prevFacility()">
-            ❮
+        <button class="facility-nav prev" onclick="prevFacility()">❮
         </button>
-
         <img id="facilityModalImage" class="facility-modal-image" src="" alt="" />
-
-        <div class="facility-modal-title" id="facilityModalTitle">
-        </div>
-
-        <button class="facility-nav next" onclick="nextFacility()">
-            ❯
-        </button>
+        <div class="facility-modal-title" id="facilityModalTitle"></div>
+        <button class="facility-nav next" onclick="nextFacility()">❯</button>
 
     </div>
 
