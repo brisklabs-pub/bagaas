@@ -16,7 +16,7 @@ async function loadArticles() {
 
     card.innerHTML = `
       <img
-        src="${article.thumb}"
+        src="${article.thumbnail}"
         alt="${article.title}"
       />
 
