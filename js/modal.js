@@ -1,23 +1,20 @@
-const newsGrid =
-    document.getElementById(
-        "newsGrid"
-    );
+const newsGrid = document.getElementById("newsGrid");
 
 async function loadArticles() {
-    const response =
-        await fetch("https://raw.githubusercontent.com/brisklabs-pub/bagaas/refs/heads/main/data/articles.json");
-    const articles =
-        await response.json();
+  const response =
+    await fetch("https://raw.githubusercontent.com/brisklabs-pub/bagaas/refs/heads/main/data/articles.json");
+  const articles =
+    await response.json();
 
-    articles.forEach((article) => {
+  articles.forEach((article) => {
 
-        const card =
-            document.createElement("div");
+    const card =
+      document.createElement("div");
 
-        card.className =
-            "news-card";
+    card.className =
+      "news-card";
 
-        card.innerHTML = `
+    card.innerHTML = `
       <img
         src="${article.thumb}"
         alt="${article.title}"
@@ -44,67 +41,167 @@ async function loadArticles() {
       </div>
     `;
 
-        card.onclick = () =>
-            openArticleModal(article);
+    card.onclick = () =>
+      openContentModal(article);
 
-        newsGrid.appendChild(card);
+    newsGrid.appendChild(card);
 
-    });
-
-}
-
-function openArticleModal(article) {
-
-    document.getElementById(
-        "modalTitle"
-    ).innerText =
-        article.title;
-
-    document.getElementById(
-        "modalDate"
-    ).innerText =
-        article.datetime;
-
-    document.getElementById(
-        "modalContent"
-    ).innerText =
-        article.content;
-
-    document.getElementById(
-        "modalImage"
-    ).src =
-        article.thumb;
-
-    document.getElementById(
-        "articleModal"
-    ).classList.add("show");
-}
-
-function closeArticleModal() {
-
-    document.getElementById(
-        "articleModal"
-    ).classList.remove("show");
+  });
 }
 
 function copyLink() {
-
-    navigator.clipboard.writeText(
-        window.location.href
-    );
-
-    alert("Link copied!");
+  navigator.clipboard.writeText(window.location.href);
+  alert("Link copied!");
 }
 
 // Acticles
 loadArticles();
+
+
+/* =========================================
+ ANNOUNCEMENTS
+========================================= */
+
+const announcementGrid = document.getElementById("announcementGrid");
+async function loadAnnouncements() {
+  try {
+
+    const response =
+      await fetch(
+        "https://raw.githubusercontent.com/brisklabs-pub/bagaas/refs/heads/main/data/announce.json"
+      );
+
+    const announcements =
+      await response.json();
+
+    announcementGrid.innerHTML = "";
+
+    announcements.forEach(
+      (announcement, index) => {
+
+        const card =
+          document.createElement("div");
+
+        /* FEATURED */
+        if (
+          announcement.type === "important"
+          && index === 0
+        ) {
+
+          card.className =
+            "announcement-card featured";
+
+          card.innerHTML = `
+
+                    <div class="announcement-badge">
+                        IMPORTANT
+                    </div>
+
+                    <div class="announcement-content">
+
+                        <span class="announcement-date">
+                            ${announcement.date}
+                        </span>
+
+                        <h3>
+                            ${announcement.title}
+                        </h3>
+
+                        <p>
+                            ${announcement.content}
+                        </p>
+
+                        <a href="#">
+                            Read More →
+                        </a>
+
+                    </div>
+                `;
+
+        } else {
+
+          card.className =
+            "announcement-card";
+
+          card.innerHTML = `
+
+                    <div class="announcement-icon">
+
+                        ${announcement.type === "important"
+              ? "📢"
+              : "📌"
+            }
+
+                    </div>
+
+                    <div class="announcement-content">
+
+                        <span class="announcement-date">
+                            ${announcement.date}
+                        </span>
+
+                        <h3>
+                            ${announcement.title}
+                        </h3>
+
+                        <p>
+                            ${announcement.content}
+                        </p>
+
+                    </div>
+                `;
+        }
+
+        /* OPEN MODAL */
+        card.onclick = () => {
+
+          openContentModal({
+
+            category:
+              "Announcement",
+
+            title:
+              announcement.title,
+
+            date:
+              announcement.date,
+
+            content:
+              announcement.content,
+
+            image:
+              announcement.image || ""
+
+          });
+        };
+
+        announcementGrid.appendChild(card);
+
+      });
+
+  } catch (error) {
+
+    console.error(
+      "Failed loading announcements:",
+      error
+    );
+
+    announcementGrid.innerHTML = `
+            <p class="empty-content">
+                Failed to load announcements.
+            </p>
+        `;
+  }
+}
+
+/* LOAD */
+loadAnnouncements();
 
 //=====================================================================
 let facilities = [];
 let currentFacility = 0;
 
 async function loadFacilities() {
-
   const response = await fetch("https://raw.githubusercontent.com/brisklabs-pub/bagaas/refs/heads/main/data/facilities.json");
   facilities = await response.json();
 
@@ -191,3 +288,60 @@ function updateFacilityModal() {
 
 // Facilities
 loadFacilities();
+
+
+/* =========================================
+   OPEN CONTENT MODAL
+========================================= */
+function openContentModal(data) {
+  const modal = document.getElementById("contentModal");
+  const container = document.querySelector(".content-modal-container");
+  const image = document.getElementById("contentModalImage");
+
+  /* CATEGORY */
+  document.getElementById("contentModalCategory").innerText = data.category || "";
+  /* DATE */
+  document.getElementById("contentModalDate").innerText = data.date || "";
+  /* TITLE */
+  document.getElementById("contentModalTitle").innerText = data.title || "";
+  /* CONTENT */
+  document.getElementById("contentModalContent").innerText = data.content || "";
+
+  /* IMAGE */
+  const imageSource =
+    data.thumbnail ||
+    data.image ||
+    "";
+
+  if (imageSource) {
+    image.src = imageSource;
+    container.classList.remove("no-image");
+  } else {
+    image.src = "";
+    container.classList.add("no-image");
+  }
+
+  /* OPEN */
+  modal.classList.add("show");
+  document.body.style.overflow = "hidden";
+}
+
+/* =========================================
+   CLOSE
+========================================= */
+
+function closeContentModal() {
+  document
+    .getElementById("contentModal")
+    .classList.remove("show");
+  document.body.style.overflow = "auto";
+}
+
+/* =========================================
+   COPY LINK
+========================================= */
+
+function copyLink() {
+  navigator.clipboard.writeText(window.location.href);
+  alert("Link copied!");
+}

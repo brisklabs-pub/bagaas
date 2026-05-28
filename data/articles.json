@@ -1,71 +1,62 @@
 [
   {
-    "thumb": "https://picsum.photos/600/400?random=1",
+    "thumbnail": "https://picsum.photos/600/400?random=1",
     "datetime": "January 05, 2026",
     "title": "Campus Innovation Fair 2026",
-    "content": "Students from different grade levels showcased robotics projects, software applications, and creative engineering concepts during the annual innovation fair. Parents, guests, and faculty members attended the event to celebrate student creativity and collaborative learning."
+    "content": "What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software including versions of Lorem Ipsum.\n\nWhy do we use it? It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose.\n\nWhere does it come from? Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" by Cicero.\n\nThe standard chunk of Lorem Ipsum used since 1966 is reproduced below for those interested. This year's Campus Innovation Fair 2026 promises to be bigger and better, showcasing student projects, startup ideas, and technological breakthroughs from various departments."
   },
-
   {
-    "thumb": "https://picsum.photos/600/400?random=2",
+    "thumbnail": "https://picsum.photos/600/400?random=2",
     "datetime": "January 12, 2026",
     "title": "New Digital Library Opens",
-    "content": "The newly renovated digital library now offers modern study spaces, collaborative workstations, upgraded internet access, and thousands of new digital resources for students and teachers."
+    "content": "The newly renovated digital library is now open to all students and faculty members. This state-of-the-art facility offers modern study spaces, collaborative workstations, high-speed internet access, and thousands of new digital resources including e-books, academic journals, research databases, and multimedia learning materials. The library features quiet zones for individual study, group discussion rooms equipped with smart boards, and dedicated areas for research and thesis writing. Students can now access materials 24/7 through the new mobile app and online portal. The renovation cost over 15 million pesos and aims to support academic excellence by providing better learning infrastructure. Librarians have also been trained to assist students in research methodologies and proper citation practices. This upgrade is expected to significantly improve student performance and research output in the coming years."
   },
-
   {
-    "thumb": "https://picsum.photos/600/400?random=3",
+    "thumbnail": "https://picsum.photos/600/400?random=3",
     "datetime": "January 18, 2026",
     "title": "Athletics Team Wins Regional Championship",
-    "content": "The school's athletics team secured the regional championship title after an impressive performance throughout the season. Students, teachers, and alumni celebrated the historic victory during a special campus recognition ceremony."
+    "content": "The school's athletics team delivered a stellar performance and secured the regional championship title after months of rigorous training and competition. Athletes showed exceptional skill, teamwork, and determination throughout the season. The victory was celebrated with a grand recognition ceremony attended by students, teachers, parents, and alumni. This achievement marks the third consecutive year the school has dominated the regional games. The coaching staff and athletes dedicated countless hours to preparation, focusing on physical conditioning, mental toughness, and strategic gameplay. The championship win has boosted school pride and inspired younger students to participate more actively in sports. Plans are already underway to prepare the team for the upcoming national competitions."
   },
-
   {
-    "thumb": "https://picsum.photos/600/400?random=4",
+    "thumbnail": "https://picsum.photos/600/400?random=4",
     "datetime": "February 02, 2026",
     "title": "Science Laboratory Expansion",
-    "content": "A newly upgraded science laboratory was officially launched to support hands-on learning experiences in biology, chemistry, and physics for all high school students."
+    "content": "A newly upgraded science laboratory was officially launched last week to provide students with better hands-on learning experiences. The expanded facility includes modern equipment for biology, chemistry, and physics experiments. New features include digital microscopes, advanced chemical analysis tools, robotics kits, and safety-compliant workstations. This development will greatly benefit high school students by allowing them to conduct more complex experiments and research projects. Teachers have also received training on the new equipment. The laboratory expansion is part of the school's commitment to STEM education and aims to prepare students for future careers in science and technology fields. Over 300 students are expected to use the facility regularly."
   },
-
   {
-    "thumb": "https://picsum.photos/600/400?random=5",
+    "thumbnail": "https://picsum.photos/600/400?random=5",
     "datetime": "February 14, 2026",
     "title": "Valentine Charity Program",
-    "content": "Students organized a successful charity drive that collected school supplies, food donations, and clothing for local communities in need. The initiative promoted compassion, volunteerism, and social responsibility."
+    "content": "Students successfully organized a meaningful Valentine Charity Program that collected school supplies, food donations, clothing, and hygiene kits for underprivileged families in nearby communities. The initiative not only promoted compassion and volunteerism but also taught students the value of social responsibility. More than 200 volunteers participated in packing and distributing the donations. The program included fun activities such as a charity fair, musical performances, and storytelling sessions for children. This annual event continues to grow each year and has become one of the most anticipated outreach programs in the school calendar. Organizers hope to expand the reach next year by partnering with more local organizations."
   },
-
   {
-    "thumb": "https://picsum.photos/600/400?random=6",
+    "thumbnail": "https://picsum.photos/600/400?random=6",
     "datetime": "March 01, 2026",
     "title": "Academic Excellence Awards",
-    "content": "Top-performing students received awards and recognition for their outstanding academic achievements, leadership, and extracurricular participation during the annual honors ceremony."
+    "content": "Top-performing students were honored during the annual Academic Excellence Awards ceremony. Awards were given for outstanding academic achievements, leadership qualities, and exceptional participation in extracurricular activities. The event recognized students from different year levels who maintained high academic standards while balancing various school commitments. Special awards were also given to teachers who demonstrated outstanding mentorship. This celebration motivates all students to strive for excellence and showcases the school's commitment to holistic development. Awardees received certificates, medals, and scholarship incentives. The program concluded with an inspirational talk from a distinguished alumnus."
   },
-
   {
-    "thumb": "https://picsum.photos/600/400?random=7",
+    "thumbnail": "https://picsum.photos/600/400?random=7",
     "datetime": "March 10, 2026",
     "title": "School Launches Coding Bootcamp",
-    "content": "A new after-school coding program was introduced to help students learn programming fundamentals, web development, mobile app creation, and robotics engineering using modern technologies."
+    "content": "The school officially launched a new after-school Coding Bootcamp designed to equip students with essential programming skills. The program covers programming fundamentals, web development, mobile app creation, data science basics, and robotics engineering. Students will work on real-world projects using modern technologies such as Python, JavaScript, HTML/CSS, and Arduino. Industry professionals will serve as guest mentors throughout the course. This initiative aims to prepare students for the demands of the digital economy and encourage innovation. Over 80 students have already enrolled in the first batch. The bootcamp runs twice a week and includes both theoretical lessons and practical coding sessions."
   },
-
   {
-    "thumb": "https://picsum.photos/600/400?random=8",
+    "thumbnail": "https://picsum.photos/600/400?random=8",
     "datetime": "March 22, 2026",
     "title": "Community Outreach Program",
-    "content": "Faculty members and student volunteers participated in a weekend outreach initiative focused on environmental awareness, tree planting, and community clean-up activities."
+    "content": "Faculty members and student volunteers took part in a weekend Community Outreach Program focused on environmental awareness and sustainability. Activities included tree planting, coastal clean-up, waste segregation education, and distribution of educational materials to local residents. The program aimed to strengthen the school's relationship with the community while promoting ecological responsibility. More than 150 participants contributed their time and effort. This outreach reflects the school's mission to develop socially aware and environmentally conscious citizens. Feedback from the community was overwhelmingly positive, and plans are being made to conduct similar activities every quarter."
   },
-
   {
-    "thumb": "https://picsum.photos/600/400?random=9",
+    "thumbnail": "https://picsum.photos/600/400?random=9",
     "datetime": "April 08, 2026",
     "title": "School Cultural Festival",
-    "content": "Students celebrated cultural diversity through performances, exhibitions, food booths, and traditional presentations representing different regions and communities."
+    "content": "The annual School Cultural Festival was a huge success, celebrating the rich cultural diversity of the Philippines and beyond. Students showcased talents through traditional dances, folk songs, theatrical performances, and art exhibitions. Food booths offered delicacies from different regions, allowing attendees to experience various culinary traditions. The event promoted cultural appreciation, unity, and respect for diversity. Hundreds of students and parents attended the two-day festival. Special awards were given to the best performances and most creative booths. This yearly celebration has become a highlight of the school year and helps preserve cultural heritage among the youth."
   },
-
   {
-    "thumb": "https://picsum.photos/600/400?random=10",
+    "thumbnail": "https://picsum.photos/600/400?random=10",
     "datetime": "April 19, 2026",
     "title": "Graduation Preparations Begin",
-    "content": "Graduating students started preparation activities for commencement exercises including rehearsals, recognition programs, leadership seminars, and career orientation sessions."
+    "content": "Graduating students have started intensive preparation activities for the upcoming commencement exercises. These include multiple rehearsals, leadership seminars, career orientation sessions, final project presentations, and academic reviews. The school administration is working closely with the graduating class to ensure a smooth and memorable graduation day. Activities also cover proper etiquette training, photo sessions, and distribution of graduation packages. This milestone marks the end of an important chapter in the students' lives and the beginning of new opportunities. Parents are encouraged to actively participate in the preparation process to support their children during this transitional period."
   }
 ]

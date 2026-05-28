@@ -126,11 +126,10 @@
 
     <!-- ANNOUNCEMENTS -->
     <section id="announcements">
-
         <div class="container">
             <!-- HEADER -->
             <div class="section-title">
-                <span class="section-tag"> SCHOOL UPDATES</span>
+                <span class="section-tag">SCHOOL UPDATES</span>
                 <h2>Latest Announcements</h2>
                 <p>
                     Stay informed with important school notices,
@@ -138,75 +137,12 @@
                     enrollment reminders, and official announcements.
                 </p>
             </div>
-
             <!-- GRID -->
-            <div class="announcement-grid">
-                <!-- CARD -->
-                <div class="announcement-card featured">
-                    <div class="announcement-badge">
-                        IMPORTANT
-                    </div>
-
-                    <div class="announcement-content">
-                        <span class="announcement-date">July 20, 2026</span>
-                        <h3>Enrollment Schedule for School Year 2026–2027</h3>
-                        <p>
-                            Enrollment for incoming Grade 7 and Senior High School
-                            students will officially begin on July 25, 2026.
-                            Please prepare all required documents before visiting
-                            the registrar's office.
-                        </p>
-                        <a href="#">Read More →</a>
-                    </div>
-                </div>
-
-                <!-- CARD -->
-                <div class="announcement-card">
-                    <div class="announcement-icon">📢</div>
-                    <div class="announcement-content">
-                        <span class="announcement-date">July 18, 2026</span>
-                        <h3>Brigada Eskwela 2026</h3>
-                        <p>
-                            Parents, alumni, and volunteers are invited to join
-                            Brigada Eskwela activities to help prepare classrooms
-                            and facilities for the upcoming school year.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- CARD -->
-                <div class="announcement-card">
-                    <div class="announcement-icon">🎓</div>
-                    <div class="announcement-content">
-                        <span class="announcement-date">July 15, 2026</span>
-                        <h3>Scholarship Application Open</h3>
-                        <p>
-                            MSPC now accepts scholarship applications for qualified
-                            students under academic excellence and technical skills
-                            programs.
-                        </p>
-
-                    </div>
-
-                </div>
-
-                <!-- CARD -->
-                <div class="announcement-card">
-                    <div class="announcement-icon">🏫</div>
-                    <div class="announcement-content">
-                        <span class="announcement-date">July 10, 2026</span>
-                        <h3>Campus Maintenance Advisory</h3>
-                        <p>
-                            Selected workshops and laboratories will temporarily
-                            close for facility upgrades and maintenance from
-                            July 12–14.
-                        </p>
-                    </div>
-                </div>
-            </div>
+            <div class="announcement-grid" id="announcementGrid"></div>
         </div>
 
     </section>
+
 
     <!-- ARTICLES -->
     <section id="articles">
@@ -389,52 +325,6 @@
         </div>
     </footer>
 
-    <!-- ARTICLE MODAL -->
-    <div class="article-modal" id="articleModal">
-
-        <div class="article-modal-content">
-
-            <button class="modal-close" onclick="closeArticleModal()">
-                ×
-            </button>
-
-            <img id="modalImage" class="modal-image" src="" alt="Article" />
-
-            <div class="modal-body">
-
-                <span class="modal-date" id="modalDate">
-                </span>
-
-                <h2 id="modalTitle"></h2>
-
-                <p id="modalContent"></p>
-
-                <!-- SHARE -->
-                <div class="share-row">
-
-                    <button onclick="shareFacebook()" class="share-btn">
-                        Facebook
-                    </button>
-
-                    <button onclick="shareTwitter()" class="share-btn">
-                        Twitter
-                    </button>
-
-                    <button onclick="shareEmail()" class="share-btn">
-                        Email
-                    </button>
-
-                    <button onclick="copyLink()" class="share-btn">
-                        Copy Link
-                    </button>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
 
     <!-- FACILITY MODAL -->
     <div class="facility-modal" id="facilityModal">
@@ -447,6 +337,83 @@
         <img id="facilityModalImage" class="facility-modal-image" src="" alt="" />
         <div class="facility-modal-title" id="facilityModalTitle"></div>
         <button class="facility-nav next" onclick="nextFacility()">❯</button>
+
+    </div>
+
+
+    <!-- =========================================
+     GENERIC CONTENT MODAL
+========================================= -->
+    <div class="content-modal" id="contentModal">
+        <!-- BACKDROP -->
+        <div class="content-modal-backdrop" onclick="closeContentModal()">
+        </div>
+
+        <!-- CONTENT -->
+        <div class="content-modal-container">
+
+            <!-- CLOSE -->
+            <button class="content-modal-close" onclick="closeContentModal()">
+                ×
+            </button>
+
+            <!-- IMAGE -->
+            <div class="content-modal-image-wrapper" id="contentModalImageWrapper">
+
+                <img id="contentModalImage" class="content-modal-image" src="" alt="Content Image" />
+
+            </div>
+
+            <!-- BODY -->
+            <div class="content-modal-body">
+
+                <!-- TOP -->
+                <div class="content-modal-top">
+
+                    <span class="content-modal-category" id="contentModalCategory">
+                    </span>
+
+                    <span class="content-modal-date" id="contentModalDate">
+                    </span>
+
+                </div>
+
+                <!-- TITLE -->
+                <h2 class="content-modal-title" id="contentModalTitle">
+                </h2>
+
+                <!-- CONTENT -->
+                <div class="content-modal-content" id="contentModalContent">
+                </div>
+
+                <!-- SHARE -->
+                <div class="content-modal-actions">
+
+                    <button class="share-btn" onclick="shareFacebook()">
+
+                        Facebook
+                    </button>
+
+                    <button class="share-btn" onclick="shareTwitter()">
+
+                        Twitter
+                    </button>
+
+                    <button class="share-btn" onclick="shareEmail()">
+
+                        Email
+                    </button>
+
+                    <button class="share-btn" onclick="copyLink()">
+
+                        Copy Link
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
 
     </div>
 
