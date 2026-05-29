@@ -1,97 +1,457 @@
+
 /* =========================================
- ARTICLES
+   GLOBALS
 ========================================= */
-const newsGrid = document.getElementById("newsGrid");
+
+const newsGrid =
+  document.getElementById(
+    "newsGrid"
+  );
+
+const announcementGrid =
+  document.getElementById(
+    "announcementGrid"
+  );
+
+let allArticles = [];
+let allAnnouncements = [];
+
+/* =========================================
+   ARTICLES
+========================================= */
+
 async function loadArticles() {
-  const response = await fetch("https://raw.githubusercontent.com/brisklabs-pub/bagaas/refs/heads/main/data/articles.json");
-  const articles = await response.json();
+
+  const response =
+    await fetch(
+      "https://raw.githubusercontent.com/brisklabs-pub/bagaas/refs/heads/main/data/articles.json"
+    );
+
+  const articles =
+    await response.json();
+
+  allArticles = articles;
 
   articles.forEach((article) => {
-    const card = document.createElement("div");
-    card.className = "news-card";
-    card.innerHTML = `
-      <img src="${article.thumbnail}" alt="${article.title}"/>
-      <div class="news-body">
-        <span class="news-date">${article.datetime}</span>
-        <h3>${article.title}</h3>
-        <p>${article.content}</p>
-        <button class="read-more"> Read More → </button>
-      </div>`;
 
-    card.onclick = () => openContentModal(article);
+    const card =
+      document.createElement("div");
+
+    card.className =
+      "news-card";
+
+    card.id =
+      article.article_id;
+
+    card.innerHTML = `
+      <img
+        src="${article.thumbnail}"
+        alt="${article.title}"
+      />
+
+      <div class="news-body">
+
+        <span class="news-date">
+          ${article.created_at}
+        </span>
+
+        <h3>
+          ${article.title}
+        </h3>
+
+        <p>
+          ${article.content}
+        </p>
+
+        <button class="read-more">
+          Read More →
+        </button>
+
+      </div>
+    `;
+
+    card.onclick = () =>
+      openContentModal(article);
+
     newsGrid.appendChild(card);
+
   });
 }
-function copyLink() {
-  navigator.clipboard.writeText(window.location.href);
-  alert("Link copied!");
-}
-// LOAD ARTICLES
-loadArticles();
 
 /* =========================================
- ANNOUNCEMENTS
+   ANNOUNCEMENTS
 ========================================= */
-const announcementGrid = document.getElementById("announcementGrid");
+
 async function loadAnnouncements() {
+
   try {
-    const response = await fetch("https://raw.githubusercontent.com/brisklabs-pub/bagaas/refs/heads/main/data/announce.json");
-    const announcements = await response.json();
-    announcementGrid.innerHTML = "";
+
+    const response =
+      await fetch(
+        "https://raw.githubusercontent.com/brisklabs-pub/bagaas/refs/heads/main/data/announce.json"
+      );
+
+    const announcements =
+      await response.json();
+
+    allAnnouncements =
+      announcements;
+
+    announcementGrid.innerHTML =
+      "";
+
     announcements.forEach(
       (announcement, index) => {
-        const card = document.createElement("div");
+
+        const card =
+          document.createElement("div");
+
+        card.id =
+          announcement.announcement_id;
+
         /* FEATURED */
-        if (announcement.type === "important" && index === 0) {
-          card.className = "announcement-card featured";
+        if (
+          announcement.type ===
+            "important" &&
+          index === 0
+        ) {
+
+          card.className =
+            "announcement-card featured";
+
           card.innerHTML = `
-          <div class="announcement-badge">IMPORTANT</div>
-          <div class="announcement-content">
-            <span class="announcement-date">
-              ${announcement.date}
-            </span>
-              
-            <h3>${announcement.title}</h3>
-            <p>${announcement.content}</p>
-            <a href="#">Read More →</a>
-          </div>`;
+            <div class="announcement-badge">
+              IMPORTANT
+            </div>
+
+            <div class="announcement-content">
+
+              <span class="announcement-date">
+                ${announcement.created_at}
+              </span>
+
+              <h3>
+                ${announcement.title}
+              </h3>
+
+              <p>
+                ${announcement.content}
+              </p>
+
+              <a href="#">
+                Read More →
+              </a>
+
+            </div>
+          `;
+
         } else {
-          card.className = "announcement-card";
+
+          card.className =
+            "announcement-card";
+
           card.innerHTML = `
-          <div class="announcement-icon">
-            ${announcement.type === "important" ? "📢" : "📌"}
-          </div>
-          <div class="announcement-content">
-            <span class="announcement-date">
-              ${announcement.date}
-            </span>
-            <h3>${announcement.title}</h3>
-            <p>${announcement.content}</p>
-          </div>`;
+            <div class="announcement-icon">
+              ${
+                announcement.type ===
+                "important"
+                  ? "📢"
+                  : "📌"
+              }
+            </div>
+
+            <div class="announcement-content">
+
+              <span class="announcement-date">
+                ${announcement.created_at}
+              </span>
+
+              <h3>
+                ${announcement.title}
+              </h3>
+
+              <p>
+                ${announcement.content}
+              </p>
+
+            </div>
+          `;
         }
-        /* OPEN MODAL */
-        card.onclick = () => {
+
+        /* OPEN */
+        card.onclick = () =>
           openContentModal({
-            category:"Announcement",
-            title: announcement.title,
-            date: announcement.date,
-            content: announcement.content,
-            image: announcement.image || ""
+            ...announcement,
+            category:
+              "Announcement"
           });
-        };
-        announcementGrid.appendChild(card);
+
+        announcementGrid.appendChild(
+          card
+        );
       });
 
   } catch (error) {
-    console.error("Failed loading announcements:",error);
+
+    console.error(
+      "Failed loading announcements:",
+      error
+    );
+
     announcementGrid.innerHTML = `
       <p class="empty-content">
         Failed to load announcements.
-      </p>`;
+      </p>
+    `;
   }
 }
-/* LOAD ANNOUNCEMENTS*/
-loadAnnouncements();
+
+/* =========================================
+   OPEN MODAL
+========================================= */
+
+function openContentModal(
+  data,
+  pushUrl = true
+) {
+
+  const modal =
+    document.getElementById(
+      "contentModal"
+    );
+
+  const container =
+    document.querySelector(
+      ".content-modal-container"
+    );
+
+  const image =
+    document.getElementById(
+      "contentModalImage"
+    );
+
+  /* CATEGORY */
+  document.getElementById(
+    "contentModalCategory"
+  ).innerText =
+    data.category || "";
+
+  /* DATE */
+  document.getElementById(
+    "contentModalDate"
+  ).innerText =
+    data.created_at || "";
+
+  /* TITLE */
+  document.getElementById(
+    "contentModalTitle"
+  ).innerText =
+    data.title || "";
+
+  /* CONTENT */
+  document.getElementById(
+    "contentModalContent"
+  ).innerText =
+    data.content || "";
+
+  /* IMAGE */
+  const imageSource =
+    data.thumbnail ||
+    data.image ||
+    "";
+
+  if (imageSource) {
+
+    image.src =
+      imageSource;
+
+    container.classList.remove(
+      "no-image"
+    );
+
+  } else {
+
+    image.src = "";
+
+    container.classList.add(
+      "no-image"
+    );
+  }
+
+  /* URL */
+  if (pushUrl) {
+
+    if (data.article_id) {
+
+      history.pushState(
+        {},
+        "",
+        "/article/" +
+        data.article_id
+      );
+    }
+
+    if (data.announcement_id) {
+
+      history.pushState(
+        {},
+        "",
+        "/announcement/" +
+        data.announcement_id
+      );
+    }
+  }
+
+  /* OPEN */
+  modal.classList.add("show");
+
+  document.body.style.overflow =
+    "hidden";
+}
+
+/* =========================================
+   CLOSE MODAL
+========================================= */
+
+function closeContentModal() {
+
+  document
+    .getElementById("contentModal")
+    .classList.remove("show");
+
+  document.body.style.overflow =
+    "auto";
+
+  history.pushState(
+    {},
+    "",
+    "/"
+  );
+}
+
+/* =========================================
+   OPEN FROM URL
+========================================= */
+
+function openContentFromUrl() {
+
+  const path =
+    window.location.pathname;
+
+  /* ARTICLE */
+  if (
+    path.startsWith("/article/")
+  ) {
+
+    const id =
+      path.split("/article/")[1];
+
+    const article =
+      allArticles.find(
+        (a) =>
+          a.article_id === id
+      );
+
+    if (article) {
+
+      openContentModal(
+        article,
+        false
+      );
+    }
+  }
+
+  /* ANNOUNCEMENT */
+  if (
+    path.startsWith(
+      "/announcement/"
+    )
+  ) {
+
+    const id =
+      path.split(
+        "/announcement/"
+      )[1];
+
+    const announcement =
+      allAnnouncements.find(
+        (a) =>
+          a.announcement_id ===
+          id
+      );
+
+    if (announcement) {
+
+      openContentModal(
+        {
+          ...announcement,
+          category:
+            "Announcement"
+        },
+        false
+      );
+    }
+  }
+}
+
+/* =========================================
+   BACK BUTTON
+========================================= */
+
+window.addEventListener(
+  "popstate",
+  () => {
+
+    const path =
+      window.location.pathname;
+
+    if (
+      path === "/" ||
+      path === ""
+    ) {
+
+      document
+        .getElementById(
+          "contentModal"
+        )
+        .classList.remove(
+          "show"
+        );
+
+      document.body.style.overflow =
+        "auto";
+
+      return;
+    }
+
+    openContentFromUrl();
+  }
+);
+
+/* =========================================
+   COPY LINK
+========================================= */
+
+function copyLink() {
+  navigator.clipboard.writeText(
+    window.location.href
+  );
+  alert("Link copied!");
+}
+
+/* =========================================
+   INIT
+========================================= */
+
+Promise.all([
+  loadArticles(),
+  loadAnnouncements()
+]).then(() => {
+  openContentFromUrl();
+});
+
+
+
 
 /* =========================================
  FACILITIES
@@ -148,51 +508,3 @@ function updateFacilityModal() {
 
 // Facilities
 loadFacilities();
-
-
-/* =========================================
-   OPEN CONTENT MODAL
-========================================= */
-function openContentModal(data) {
-  const modal = document.getElementById("contentModal");
-  const container = document.querySelector(".content-modal-container");
-  const image = document.getElementById("contentModalImage");
-  /* CATEGORY */
-  document.getElementById("contentModalCategory").innerText = data.category || "";
-  /* DATE */
-  document.getElementById("contentModalDate").innerText = data.created_at || "";
-  /* TITLE */
-  document.getElementById("contentModalTitle").innerText = data.title || "";
-  /* CONTENT */
-  document.getElementById("contentModalContent").innerText = data.content || "";
-
-  /* IMAGE */
-  const imageSource = data.thumbnail || data.image || "";
-
-  if (imageSource) {
-    image.src = imageSource;
-    container.classList.remove("no-image");
-  } else {
-    image.src = "";
-    container.classList.add("no-image");
-  }
-  /* OPEN */
-  modal.classList.add("show");
-  document.body.style.overflow = "hidden";
-}
-
-/* =========================================
-  CLOSE
-========================================= */
-function closeContentModal() {
-  document.getElementById("contentModal").classList.remove("show");
-  document.body.style.overflow = "auto";
-}
-
-/* =========================================
-  COPY LINK
-========================================= */
-function copyLink() {
-  navigator.clipboard.writeText(window.location.href);
-  alert("Link copied!");
-}
