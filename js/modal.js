@@ -2,79 +2,47 @@
 /* =========================================
    GLOBALS
 ========================================= */
-
-const newsGrid =
-  document.getElementById(
-    "newsGrid"
-  );
-
-const announcementGrid =
-  document.getElementById(
-    "announcementGrid"
-  );
+const newsGrid = document.getElementById("newsGrid");
+const announcementGrid = document.getElementById("announcementGrid");
 
 let allArticles = [];
 let allAnnouncements = [];
 
 /* =========================================
+   UPDATE URL
+========================================= */
+function updateUrl(url) {
+  window.location.hash = url;
+}
+
+/* =========================================
    ARTICLES
 ========================================= */
-
 async function loadArticles() {
-
   const response =
     await fetch(
       "https://raw.githubusercontent.com/brisklabs-pub/bagaas/refs/heads/main/data/articles.json"
     );
 
-  const articles =
-    await response.json();
-
+  const articles = await response.json();
   allArticles = articles;
-
   articles.forEach((article) => {
-
-    const card =
-      document.createElement("div");
-
-    card.className =
-      "news-card";
-
-    card.id =
-      article.article_id;
-
+    const card = document.createElement("div");
+    card.className = "news-card";
+    card.id = article.article_id;
     card.innerHTML = `
-      <img
-        src="${article.thumbnail}"
-        alt="${article.title}"
-      />
-
+      <img src="${article.thumbnail}" alt="${article.title}"/>
       <div class="news-body">
-
-        <span class="news-date">
-          ${article.created_at}
-        </span>
-
-        <h3>
-          ${article.title}
-        </h3>
-
-        <p>
-          ${article.content}
-        </p>
-
+        <span class="news-date">${article.created_at}</span>
+        <h3>${article.title}</h3>
+        <p>${article.content}</p>
         <button class="read-more">
           Read More →
         </button>
-
       </div>
     `;
-
-    card.onclick = () =>
-      openContentModal(article);
-
+    card.onclick = () => openContentModal(article);
     newsGrid.appendChild(card);
-
   });
 }
 
@@ -83,120 +51,59 @@ async function loadArticles() {
 ========================================= */
 
 async function loadAnnouncements() {
-
   try {
-
     const response =
       await fetch(
         "https://raw.githubusercontent.com/brisklabs-pub/bagaas/refs/heads/main/data/announce.json"
       );
 
-    const announcements =
-      await response.json();
-
-    allAnnouncements =
-      announcements;
-
-    announcementGrid.innerHTML =
-      "";
-
+    const announcements = await response.json();
+    allAnnouncements = announcements;
+    announcementGrid.innerHTML = "";
     announcements.forEach(
       (announcement, index) => {
-
-        const card =
-          document.createElement("div");
-
-        card.id =
-          announcement.announcement_id;
-
+        const card = document.createElement("div");
+        card.id = announcement.announcement_id;
         /* FEATURED */
-        if (
-          announcement.type ===
-            "important" &&
-          index === 0
-        ) {
-
-          card.className =
-            "announcement-card featured";
-
+        if (announcement.type ==="important" && index === 0) {
+          card.className ="announcement-card featured";
           card.innerHTML = `
             <div class="announcement-badge">
               IMPORTANT
             </div>
-
             <div class="announcement-content">
-
-              <span class="announcement-date">
-                ${announcement.created_at}
-              </span>
-
-              <h3>
-                ${announcement.title}
-              </h3>
-
-              <p>
-                ${announcement.content}
-              </p>
-
+              <span class="announcement-date">${announcement.created_at}</span>
+              <h3>${announcement.title}</h3>
+              <p>${announcement.content}</p>
               <a href="#">
                 Read More →
               </a>
-
-            </div>
-          `;
+            </div>`;
 
         } else {
 
-          card.className =
-            "announcement-card";
-
+          card.className = "announcement-card";
           card.innerHTML = `
             <div class="announcement-icon">
-              ${
-                announcement.type ===
-                "important"
-                  ? "📢"
-                  : "📌"
-              }
+              ${announcement.type === "important"? "📢": "📌"}
             </div>
-
             <div class="announcement-content">
-
-              <span class="announcement-date">
-                ${announcement.created_at}
-              </span>
-
-              <h3>
-                ${announcement.title}
-              </h3>
-
-              <p>
-                ${announcement.content}
-              </p>
-
+              <span class="announcement-date">${announcement.created_at}</span>
+              <h3>${announcement.title}</h3>
+              <p>${announcement.content}</p>
             </div>
           `;
         }
-
-        /* OPEN */
         card.onclick = () =>
           openContentModal({
             ...announcement,
-            category:
-              "Announcement"
+            category:"Announcement"
           });
-
-        announcementGrid.appendChild(
-          card
-        );
+        announcementGrid.appendChild(card);
       });
 
   } catch (error) {
-
-    console.error(
-      "Failed loading announcements:",
-      error
-    );
+    console.error("Failed loading announcements:", error);
 
     announcementGrid.innerHTML = `
       <p class="empty-content">
@@ -210,50 +117,18 @@ async function loadAnnouncements() {
    OPEN MODAL
 ========================================= */
 
-function openContentModal(
-  data,
-  pushUrl = true
-) {
-
-  const modal =
-    document.getElementById(
-      "contentModal"
-    );
-
-  const container =
-    document.querySelector(
-      ".content-modal-container"
-    );
-
-  const image =
-    document.getElementById(
-      "contentModalImage"
-    );
-
+function openContentModal(data,pushUrl = true) {
+  const modal = document.getElementById("contentModal");
+  const container = document.querySelector(".content-modal-container");
+  const image = document.getElementById("contentModalImage");
   /* CATEGORY */
-  document.getElementById(
-    "contentModalCategory"
-  ).innerText =
-    data.category || "";
-
+  document.getElementById("contentModalCategory").innerText = data.category || "";
   /* DATE */
-  document.getElementById(
-    "contentModalDate"
-  ).innerText =
-    data.created_at || "";
-
+  document.getElementById("contentModalDate").innerText = data.created_at || "";
   /* TITLE */
-  document.getElementById(
-    "contentModalTitle"
-  ).innerText =
-    data.title || "";
-
+  document.getElementById("contentModalTitle").innerText = data.title || "";
   /* CONTENT */
-  document.getElementById(
-    "contentModalContent"
-  ).innerText =
-    data.content || "";
-
+  document.getElementById("contentModalContent").innerText = data.content || "";
   /* IMAGE */
   const imageSource =
     data.thumbnail ||
@@ -261,52 +136,24 @@ function openContentModal(
     "";
 
   if (imageSource) {
-
-    image.src =
-      imageSource;
-
-    container.classList.remove(
-      "no-image"
-    );
-
+    image.src = imageSource;
+    container.classList.remove("no-image");
   } else {
-
     image.src = "";
-
-    container.classList.add(
-      "no-image"
-    );
+    container.classList.add("no-image");
   }
 
   /* URL */
   if (pushUrl) {
-
     if (data.article_id) {
-
-      history.pushState(
-        {},
-        "",
-        "/article/" +
-        data.article_id
-      );
+      updateUrl("/article/" + data.article_id);
     }
-
     if (data.announcement_id) {
-
-      history.pushState(
-        {},
-        "",
-        "/announcement/" +
-        data.announcement_id
-      );
+      updateUrl("/announcement/" + data.announcement_id);
     }
   }
-
-  /* OPEN */
   modal.classList.add("show");
-
-  document.body.style.overflow =
-    "hidden";
+  document.body.style.overflow = "hidden";
 }
 
 /* =========================================
@@ -314,19 +161,9 @@ function openContentModal(
 ========================================= */
 
 function closeContentModal() {
-
-  document
-    .getElementById("contentModal")
-    .classList.remove("show");
-
-  document.body.style.overflow =
-    "auto";
-
-  history.pushState(
-    {},
-    "",
-    "/"
-  );
+  document.getElementById("contentModal").classList.remove("show");
+  document.body.style.overflow = "auto";
+  updateUrl("");
 }
 
 /* =========================================
@@ -334,54 +171,21 @@ function closeContentModal() {
 ========================================= */
 
 function openContentFromUrl() {
-
-  const path =
-    window.location.pathname;
-
+  const hash = window.location.hash;
   /* ARTICLE */
-  if (
-    path.startsWith("/article/")
-  ) {
-
-    const id =
-      path.split("/article/")[1];
-
-    const article =
-      allArticles.find(
-        (a) =>
-          a.article_id === id
-      );
-
+  if (hash.startsWith("#/article/")) {
+    const id = hash.split("#/article/")[1];
+    const article = allArticles.find((a) => a.article_id === id );
     if (article) {
-
-      openContentModal(
-        article,
-        false
-      );
+      openContentModal(article, false);
     }
   }
 
   /* ANNOUNCEMENT */
-  if (
-    path.startsWith(
-      "/announcement/"
-    )
-  ) {
-
-    const id =
-      path.split(
-        "/announcement/"
-      )[1];
-
-    const announcement =
-      allAnnouncements.find(
-        (a) =>
-          a.announcement_id ===
-          id
-      );
-
+  if (hash.startsWith("#/announcement/")) {
+    const id = hash.split("#/announcement/")[1];
+    const announcement = allAnnouncements.find((a) => a.announcement_id === id);
     if (announcement) {
-
       openContentModal(
         {
           ...announcement,
@@ -395,35 +199,16 @@ function openContentFromUrl() {
 }
 
 /* =========================================
-   BACK BUTTON
+   HASH CHANGE
 ========================================= */
 
-window.addEventListener(
-  "popstate",
-  () => {
-
-    const path =
-      window.location.pathname;
-
-    if (
-      path === "/" ||
-      path === ""
-    ) {
-
-      document
-        .getElementById(
-          "contentModal"
-        )
-        .classList.remove(
-          "show"
-        );
-
-      document.body.style.overflow =
-        "auto";
-
+window.addEventListener("hashchange", () => {
+    const hash = window.location.hash;
+    if (!hash) {
+      document.getElementById("contentModal").classList.remove("show");
+      document.body.style.overflow = "auto";
       return;
     }
-
     openContentFromUrl();
   }
 );
@@ -442,16 +227,12 @@ function copyLink() {
 /* =========================================
    INIT
 ========================================= */
-
 Promise.all([
   loadArticles(),
   loadAnnouncements()
 ]).then(() => {
   openContentFromUrl();
 });
-
-
-
 
 /* =========================================
  FACILITIES
