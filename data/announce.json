@@ -1,32 +1,82 @@
 [
   {
-    "date": "2026-07-20",
+    "announcement_id": "announcement-001",
+    "thumbnail": null,
+    "created_at": "2026-07-20",
     "title": "Enrollment Schedule for School Year 2026–2027",
-    "content": "Enrollment for incoming Grade 7 and Senior High School students will officially begin on July 25, 2026. Please prepare all required documents before visiting the registrar's office.",
+    "content": "Enrollment for incoming Grade 7 and Senior High School students will officially begin on July 25, 2026. Students and parents are advised to prepare all necessary requirements including report cards, birth certificates, and enrollment forms before visiting the registrar's office. The administration also announced that designated enrollment lanes will be available to accommodate returning students, transferees, and scholarship applicants. Additional staff members and student volunteers will assist during the enrollment period to ensure smooth processing and reduce waiting time. Online inquiries and appointment scheduling will remain open throughout the enrollment week to help families plan their visit efficiently.",
     "type": "important"
   },
   {
-    "date": "2026-07-18",
-    "title": "Brigada Eskwela 2026",
-    "content": "Parents, alumni, and volunteers are invited to participate in Brigada Eskwela activities to help prepare classrooms and school facilities for the upcoming school year.",
+    "announcement_id": "announcement-002",
+    "thumbnail": null,
+    "created_at": "2026-07-18",
+    "title": "Brigada Eskwela Volunteer Program",
+    "content": "Parents, alumni, and community volunteers are invited to participate in this year's Brigada Eskwela program to help prepare classrooms and facilities for the opening of classes. Activities include repainting rooms, cleaning school grounds, repairing chairs and tables, and organizing learning materials. School officials encourage everyone to join the initiative as part of promoting community cooperation and improving the learning environment for students. Volunteers may coordinate with the school administration office for schedules, assigned tasks, and available materials needed for the activities.",
     "type": "normal"
   },
   {
-    "date": "2026-07-15",
+    "announcement_id": "announcement-003",
+    "thumbnail": null,
+    "created_at": "2026-07-15",
     "title": "Scholarship Applications Now Open",
-    "content": "MSPC is now accepting scholarship applications for qualified students under academic excellence and technical skills programs.",
-    "type": "normal"
-  },
-  {
-    "date": "2026-07-10",
-    "title": "Campus Maintenance Advisory",
-    "content": "Selected workshops and laboratories will temporarily close for maintenance and upgrades from July 12 to July 14.",
+    "content": "MSPC is now accepting scholarship applications for qualified students under academic excellence, athletics, and technical-vocational programs. Interested applicants are encouraged to submit complete requirements before the deadline next month. The scholarship program aims to support deserving students who demonstrate strong academic performance, leadership potential, and financial need. Orientation sessions will also be conducted to guide applicants regarding the selection process, interview schedules, and scholarship benefits. School administrators hope the program will continue empowering students to pursue quality education and professional growth.",
     "type": "important"
   },
   {
-    "date": "2026-07-05",
-    "title": "Faculty Meeting Reminder",
-    "content": "All faculty members are requested to attend the general assembly meeting on Friday at 1:00 PM in the main conference hall.",
+    "announcement_id": "announcement-004",
+    "thumbnail": null,
+    "created_at": "2026-07-10",
+    "title": "Campus Maintenance and Facility Upgrade",
+    "content": "Selected classrooms, laboratories, and workshop facilities will temporarily close from July 12 to July 14 due to scheduled maintenance and infrastructure upgrades. The administration announced that the improvements are part of the school's long-term development plan focused on creating safer and more modern learning spaces for students and faculty members. During the maintenance period, some offices may operate on adjusted schedules. Students and visitors are advised to follow posted safety reminders and temporary directional signs around affected areas.",
+    "type": "important"
+  },
+  {
+    "announcement_id": "announcement-005",
+    "thumbnail": null,
+    "created_at": "2026-07-05",
+    "title": "Faculty General Assembly Reminder",
+    "content": "All faculty members are requested to attend the upcoming General Assembly Meeting on Friday at 1:00 PM in the Main Conference Hall. Important agenda items include academic policy updates, curriculum planning, student welfare initiatives, and preparation for the upcoming school year. Attendance is highly encouraged to ensure proper coordination among departments and teaching personnel. Faculty members are advised to review departmental reports before the meeting and submit additional concerns to the administration office in advance.",
     "type": "normal"
+  },
+  {
+    "announcement_id": "announcement-006",
+    "thumbnail": null,
+    "created_at": "2026-06-28",
+    "title": "Student ID Processing Schedule Released",
+    "content": "The Student Affairs Office has released the official schedule for Student ID processing for all grade levels. Students are advised to wear proper uniforms during photo capture and bring their registration forms for verification. The administration reminded students to follow the assigned schedules to avoid overcrowding and delays. Replacement IDs for lost or damaged cards will also be processed during the same period subject to applicable fees and verification procedures.",
+    "type": "normal"
+  },
+  {
+    "announcement_id": "announcement-007",
+    "thumbnail": null,
+    "created_at": "2026-06-24",
+    "title": "Library Orientation for New Students",
+    "content": "Incoming students are encouraged to attend the Library Orientation Program next week to familiarize themselves with library services, digital resources, and borrowing policies. The orientation aims to help students maximize the use of educational materials and online research platforms available within the campus. Librarians will also provide demonstrations on accessing e-books, research databases, and collaborative study spaces. Participation is highly recommended especially for students conducting academic research and project-based learning activities.",
+    "type": "normal"
+  },
+  {
+    "announcement_id": "announcement-008",
+    "thumbnail": null,
+    "created_at": "2026-06-20",
+    "title": "Emergency Preparedness Drill Advisory",
+    "content": "The school administration will conduct a campus-wide earthquake and fire preparedness drill this Friday as part of ongoing disaster risk reduction and safety awareness initiatives. Students, teachers, and staff are expected to participate and follow evacuation procedures according to official instructions from emergency coordinators. The activity aims to improve response readiness and ensure that everyone understands proper safety protocols during emergencies. School officials emphasized the importance of preparedness and cooperation in maintaining campus safety.",
+    "type": "important"
+  },
+  {
+    "announcement_id": "announcement-009",
+    "thumbnail": null,
+    "created_at": "2026-06-15",
+    "title": "School Clinic Announces Free Health Checkups",
+    "content": "The school clinic announced that free health checkups and consultations will be available for students throughout the month. Services include blood pressure monitoring, nutritional assessments, basic medical consultations, and wellness counseling. Students experiencing health concerns are encouraged to visit the clinic during operating hours. The initiative is part of the school's commitment to promoting student health, wellness, and preventive care within the campus community.",
+    "type": "normal"
+  },
+  {
+    "announcement_id": "announcement-010",
+    "thumbnail": null,
+    "created_at": "2026-06-10",
+    "title": "Internet Connectivity Upgrade on Campus",
+    "content": "MSPC officially completed the first phase of its campus internet infrastructure upgrade project aimed at improving digital learning and online accessibility for students and faculty members. The upgrade includes faster wireless connectivity, additional access points, and improved bandwidth management across classrooms, laboratories, and administrative offices. School officials stated that the improvements will support research activities, hybrid learning programs, and online collaboration tools used in various academic departments. Additional upgrades are expected later this year as part of the institution's digital transformation initiative.",
+    "type": "important"
   }
 ]
