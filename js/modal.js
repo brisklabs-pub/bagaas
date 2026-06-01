@@ -42,6 +42,7 @@ async function fetchTable(table, { select = "*", filters = "", order = "", limit
 // =========================================
 // GLOBALS
 // =========================================
+const heroSlides = document.getElementById("heroSlides");
 const websiteTitle = document.getElementById("websiteTitle");
 const websiteSubtitle = document.getElementById("websiteSubtitle");
 
@@ -79,9 +80,26 @@ async function loadWebsite() {
     const website = await fetchTable("website", {order: "created_at.desc"} );
     websiteTitle.textContent = website[0]?.title || "Building Future Leaders Through Quality Education";
     websiteSubtitle.textContent = website[0]?.sub_title || "Empowering students with innovation, leadership, and academic excellence for a brighter tomorrow.";
+    populateHeroImages( website[0]?.hero_images || []);
+    console.log("Loaded website data:", website);
   } catch (error) {
     console.error("Failed loading website data:", error);
   }
+}
+
+function populateHeroImages(images) {
+  heroSlides.innerHTML = "";
+  const delay = 5; // seconds per slide
+  const totalDuration = images.length * delay;
+  images.forEach((image, index) => {
+    const slide = document.createElement("div");
+    slide.className = "hero-slide";
+    slide.style.backgroundImage = `
+    linear-gradient(rgba(15,23,42,.45), rgba(15,23,42,.45)), url("${image.url}")`;
+    slide.style.animation = `slideShow ${totalDuration}s infinite`;
+    slide.style.animationDelay = `${index * delay}s`;
+    heroSlides.appendChild(slide);
+  });
 }
 
 // =========================================

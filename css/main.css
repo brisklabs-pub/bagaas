@@ -188,31 +188,12 @@ header {
   animation: slideShow 18s infinite;
 }
 
-.hero-slide:nth-child(1) {
-  background-image:
-    linear-gradient(rgba(15, 23, 42, 0.45),
-      rgba(15, 23, 42, 0.45)),
-    url("https://www.bagaas.com/assets/images/mspc-social-banner.png");
-
-  animation-delay: 0s;
-}
-
-.hero-slide:nth-child(2) {
-  background-image:
-    linear-gradient(rgba(15, 23, 42, 0.45),
-      rgba(15, 23, 42, 0.45)),
-    url("https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1600");
-
-  animation-delay: 6s;
-}
-
-.hero-slide:nth-child(3) {
-  background-image:
-    linear-gradient(rgba(15, 23, 42, 0.45),
-      rgba(15, 23, 42, 0.45)),
-    url("https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?q=80&w=1600");
-
-  animation-delay: 12s;
+.hero-slide {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    animation: slideShow 18s infinite;
 }
 
 @keyframes slideShow {
