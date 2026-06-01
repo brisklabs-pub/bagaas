@@ -1,6 +1,17 @@
 // =========================================
-//   SUPABASE CONFIG
+//   CONFIG
 // =========================================
+
+function formatDate(dateString) {
+  return new Date(dateString).toLocaleDateString(
+    "en-US",
+    {
+      month: "long",
+      day: "numeric",
+      year: "numeric",
+    }
+  );
+}
 
 const PR_URL = "twqcnzdwoddataqwvfzk";
 const PR_KEY = "sb_publishable_M-4aR3fue1pliD0bnU2WGw_OzO3dwU3";
@@ -31,6 +42,9 @@ async function fetchTable(table, { select = "*", filters = "", order = "", limit
 // =========================================
 // GLOBALS
 // =========================================
+const websiteTitle = document.getElementById("websiteTitle");
+const websiteSubtitle = document.getElementById("websiteSubtitle");
+
 const newsGrid = document.getElementById("newsGrid");
 const announcementGrid = document.getElementById("announcementGrid");
 let allArticles = [];
@@ -58,18 +72,17 @@ window.addEventListener("hashchange", () => {
 );
 
 // =========================================
-//  ANNOUNCEMENTS
+//  WEBSITE INFO
 // =========================================
-
 async function loadWebsite() {
   try {
-    // const response =
-
+    const website = await fetchTable("website", {order: "created_at.desc"} );
+    websiteTitle.textContent = website[0]?.title || "Building Future Leaders Through Quality Education";
+    websiteSubtitle.textContent = website[0]?.sub_title || "Empowering students with innovation, leadership, and academic excellence for a brighter tomorrow.";
   } catch (error) {
-
+    console.error("Failed loading website data:", error);
   }
 }
-
 
 // =========================================
 //  ANNOUNCEMENTS
@@ -84,14 +97,14 @@ async function loadAnnouncements() {
         const card = document.createElement("div");
         card.id = announcement.announcement_id;
         // FEATURED
-        if (announcement.type === "important" && index === 0) {
+        if (announcement.category === "important" && index === 0) {
           card.className = "announcement-card featured";
           card.innerHTML = `
             <div class="announcement-badge">
               IMPORTANT
             </div>
             <div class="announcement-content">
-              <span class="announcement-date">${announcement.created_at}</span>
+              <span class="announcement-date">${formatDate(announcement.created_at)}</span>
               <h3>${announcement.title}</h3>
               <p>${announcement.content}</p>
               <a href="#">
@@ -103,10 +116,10 @@ async function loadAnnouncements() {
           card.className = "announcement-card";
           card.innerHTML = `
             <div class="announcement-icon">
-              ${announcement.type === "important" ? "📢" : "📌"}
+              ${announcement.category === "important" ? "📢" : "📌"}
             </div>
             <div class="announcement-content">
-              <span class="announcement-date">${announcement.created_at}</span>
+              <span class="announcement-date">${formatDate(announcement.created_at)}</span>
               <h3>${announcement.title}</h3>
               <p>${announcement.content}</p>
             </div>
@@ -144,15 +157,19 @@ async function loadArticles() {
     card.innerHTML = `
       <img src="${article.thumbnail}" alt="${article.title}"/>
       <div class="news-body">
-        <span class="news-date">${article.created_at}</span>
+        <span class="news-date">${formatDate(article.created_at)}</span>
         <h3>${article.title}</h3>
         <p>${article.content}</p>
         <button class="read-more">
           Read More →
         </button>
-      </div>
-    `;
-    card.onclick = () => openContentModal(article);
+      </div>`;
+    card.onclick = () => {
+      openContentModal({
+            ...article,
+            category:"Article"
+          });
+    };
     newsGrid.appendChild(card);
   });
 }
@@ -165,6 +182,7 @@ let currentFacility = 0;
 async function loadFacilities() {
   const facilityGrid = document.getElementById("facilityGrid");
   const facilities = await fetchTable("facilities", {order: "created_at.desc"} );
+  console.log("Loaded facilities:", facilities);
   facilities.forEach(
     (facility, index) => {
       const item = document.createElement("div");
@@ -207,9 +225,6 @@ function updateFacilityModal() {
   document.getElementById("facilityModalTitle").innerText = facility.title;
 }
 
-// Facilities
-loadFacilities();
-
 // =========================================
 //  OPEN MODAL
 // =========================================
@@ -220,7 +235,7 @@ function openContentModal(data, pushUrl = true) {
   // CATEGORY
   document.getElementById("contentModalCategory").innerText = data.category || "";
   // DATE
-  document.getElementById("contentModalDate").innerText = data.created_at || "";
+  document.getElementById("contentModalDate").innerText = formatDate(data.created_at) || "";
   // TITLE
   document.getElementById("contentModalTitle").innerText = data.title || "";
   // CONTENT
@@ -270,7 +285,10 @@ function openContentFromUrl() {
     const id = hash.split("#/article/")[1];
     const article = allArticles.find((a) => a.article_id === id);
     if (article) {
-      openContentModal(article, false);
+      openContentModal(    {
+          ...article,
+          category:"Article"
+        }, false);
     }
   }
 
@@ -282,8 +300,7 @@ function openContentFromUrl() {
       openContentModal(
         {
           ...announcement,
-          category:
-            "Announcement"
+          category: "Announcement"
         },
         false
       );

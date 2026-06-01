@@ -120,12 +120,8 @@
         <div class="hero-slide"></div>
         <div class="hero-content">
             <div class="container">
-                <h2> Building Future Leaders Through Quality Education</h2>
-                <p>
-                    Empowering students with innovation,
-                    leadership, and academic excellence
-                    for a brighter tomorrow.
-                </p>
+                <h2 id="websiteTitle"></h2>
+                <p id="websiteSubtitle"></p>
             </div>
 
         </div>
@@ -359,67 +355,51 @@
 
         <!-- CONTENT -->
         <div class="content-modal-container">
-
             <!-- CLOSE -->
-            <button class="content-modal-close" onclick="closeContentModal()">
-                ×
-            </button>
-
+            <button class="content-modal-close" onclick="closeContentModal()">×</button>
             <!-- IMAGE -->
             <div class="content-modal-image-wrapper" id="contentModalImageWrapper">
-
                 <img id="contentModalImage" class="content-modal-image" src="" alt="Content Image" />
-
             </div>
-
             <!-- BODY -->
             <div class="content-modal-body">
-
-                <!-- TOP -->
-                <div class="content-modal-top">
-
+                <!-- Category -->
+                <div class="content-modal-header">
                     <span class="content-modal-category" id="contentModalCategory">
                     </span>
-
                     <span class="content-modal-date" id="contentModalDate">
                     </span>
-
                 </div>
-
-                <!-- TITLE -->
-                <h2 class="content-modal-title" id="contentModalTitle">
-                </h2>
-
-                <!-- CONTENT -->
+                <!-- Title -->
+                <h1 class="content-modal-title" id="contentModalTitle"></h1>
+                <!-- Divider -->
+                <div class="content-modal-divider"></div>
+                <!-- Content -->
                 <div class="content-modal-content" id="contentModalContent">
                 </div>
 
-                <!-- SHARE -->
-                <div class="content-modal-actions">
-
-                    <button class="share-btn" onclick="shareFacebook()">
-                        Facebook
-                    </button>
-                    <button class="share-btn" onclick="shareTwitter()">
-                        Twitter
-                    </button>
-
-                    <button class="share-btn" onclick="shareEmail()">
-
-                        Email
-                    </button>
-
-                    <button class="share-btn" onclick="copyLink()">
-
-                        Copy Link
-                    </button>
-
+                <!-- Footer -->
+                <div class="content-modal-footer">
+                    <div class="content-modal-share-label">
+                        Share this article
+                    </div>
+                    <div class="content-modal-actions">
+                        <button class="share-btn" onclick="shareFacebook()">
+                            Facebook
+                        </button>
+                        <button class="share-btn" onclick="shareTwitter()">
+                            Twitter
+                        </button>
+                        <button class="share-btn" onclick="shareEmail()">
+                            Email
+                        </button>
+                        <button class="share-btn" onclick="copyLink()">
+                            Copy Link
+                        </button>
+                    </div>
                 </div>
-
             </div>
-
         </div>
-
     </div>
 
     <!-- Script -->
