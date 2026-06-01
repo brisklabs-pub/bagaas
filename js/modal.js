@@ -48,8 +48,11 @@ const websiteSubtitle = document.getElementById("websiteSubtitle");
 
 const newsGrid = document.getElementById("newsGrid");
 const announcementGrid = document.getElementById("announcementGrid");
+const facilityGrid = document.getElementById("facilityGrid");
+
 let allArticles = [];
 let allAnnouncements = [];
+let currentFacility = 0;
 
 // =========================================
 // UPDATE URL
@@ -195,10 +198,8 @@ async function loadArticles() {
 // =========================================
 //  FACILITIES
 // =========================================
-let facilities = [];
-let currentFacility = 0;
 async function loadFacilities() {
-  const facilityGrid = document.getElementById("facilityGrid");
+
   const facilities = await fetchTable("facilities", {order: "created_at.desc"} );
   console.log("Loaded facilities:", facilities);
   facilities.forEach(
@@ -349,10 +350,11 @@ function hideLoader() {
 //  INIT
 // =========================================
 Promise.all([
+  loadWebsite(),
   loadArticles(),
   loadAnnouncements(),
   loadFacilities(),
-  loadWebsite()])
+])
   .then(() => {
     openContentFromUrl();
     hideLoader();
