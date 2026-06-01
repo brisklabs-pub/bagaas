@@ -1,3 +1,32 @@
+// =========================================
+//   SUPABASE CONFIG
+// =========================================
+
+const PR_URL = "twqcnzdwoddataqwvfzk";
+const PR_KEY = "sb_publishable_M-4aR3fue1pliD0bnU2WGw_OzO3dwU3";
+
+/* =========================================
+  FETCH
+========================================= */
+
+async function fetchTable(table, { select = "*", filters = "", order = "", limit = "" } = {}) {
+  try {
+    let url = `https://${PR_URL}.supabase.co/rest/v1/${table}?select=${select}`;
+    if (filters) { url += `&${filters}`; }
+    if (order) { url += `&order=${order}`; }
+    if (limit) { url += `&limit=${limit}`; }
+    const response = await fetch(url, {
+      headers: { apikey: PR_KEY, Authorization: `Bearer ${PR_KEY}` },
+    });
+    if (!response.ok) {
+      throw new Error(`Supabase Error: ${response.status}`);
+    }
+    return await response.json();
+  } catch (error) {
+    console.error(`Failed fetching ${table}:`, error);
+    return [];
+  }
+}
 
 // =========================================
 // GLOBALS
@@ -31,14 +60,23 @@ window.addEventListener("hashchange", () => {
 // =========================================
 //  ANNOUNCEMENTS
 // =========================================
+
+async function loadWebsite() {
+  try {
+    // const response =
+
+  } catch (error) {
+
+  }
+}
+
+
+// =========================================
+//  ANNOUNCEMENTS
+// =========================================
 async function loadAnnouncements() {
   try {
-    const response =
-      await fetch(
-        "https://raw.githubusercontent.com/brisklabs-pub/bagaas/refs/heads/main/data/announce.json"
-      );
-
-    const announcements = await response.json();
+    const announcements = await fetchTable("announcements", {order: "created_at.desc"} );
     allAnnouncements = announcements;
     announcementGrid.innerHTML = "";
     announcements.forEach(
@@ -96,13 +134,9 @@ async function loadAnnouncements() {
 //  ARTICLES
 // =========================================
 async function loadArticles() {
-  const response =
-    await fetch(
-      "https://raw.githubusercontent.com/brisklabs-pub/bagaas/refs/heads/main/data/articles.json"
-    );
-
-  const articles = await response.json();
+  const articles = await fetchTable("articles", {order: "created_at.desc"} );
   allArticles = articles;
+  console.log("Loaded articles:", articles);
   articles.forEach((article) => {
     const card = document.createElement("div");
     card.className = "news-card";
@@ -129,18 +163,16 @@ async function loadArticles() {
 let facilities = [];
 let currentFacility = 0;
 async function loadFacilities() {
-  const response = await fetch("https://raw.githubusercontent.com/brisklabs-pub/bagaas/refs/heads/main/data/facilities.json");
-  facilities = await response.json();
   const facilityGrid = document.getElementById("facilityGrid");
-
+  const facilities = await fetchTable("facilities", {order: "created_at.desc"} );
   facilities.forEach(
     (facility, index) => {
       const item = document.createElement("div");
       item.className = "facility-item";
       item.innerHTML = `
-        <img src="${facility.image}" alt="${facility.title}"/>
+        <img src="${facility.thumbnail}" alt="${facility.name}"/>
         <div class="facility-label">
-          <h3>${facility.title}</h3>
+          <h3>${facility.name}</h3>
         </div>`;
       item.onclick = () => openFacilityModal(index);
       facilityGrid.appendChild(item);
