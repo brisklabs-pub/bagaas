@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain Games Academy</title>
+    <link rel="stylesheet" href="./../css/game.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <div id="lockScreen" style="display:none;">
+        <div class="lock-content">
+            <div class="lock-icon">🔒</div>
+            <h1>Entertainment Room Closed</h1>
+            <p>This room is only available during operating hours.</p>
+            <h3> Monday - Friday</h3>
+            <h2> 8:00 AM - 5:00 PM </h2>
+        </div>
+    </div>
+
+    <header class="hero">
+        <div class="school-header">
+            <img src="images/logo.png" alt="School Logo" class="school-logo" onerror="this.style.display='none'">
+            <div>
+                <h1>BAGAAS NATIONAL HIGH SCHOOL</h1>
+                <h2>Entertainment Room</h2>
+                <p>Learn • Play • Explore • Compete</p>
+            </div>
+        </div>
+
+        <button id="darkModeBtn" class="primary-btn">🌙 Dark Mode</button>
+    </header>
+
+    <section class="room-status-section">
+        <div id="roomStatus" class="room-status open">
+            🟢 Entertainment Room Open
+            <span>8:00 AM - 5:00 PM</span>
+        </div>
+    </section>
+
+    <section class="games-section">
+        <div class="section-header">
+            <h2>Entertainment Room Games</h2>
+            <input type="text" id="searchGames" placeholder="Search Games...">
+        </div>
+        <div class="category-tabs">
+            <button class="category-btn active" data-category="all">
+                🎮 All Games
+            </button>
+
+            <button class="category-btn" data-category="featured">
+                🔍 Featured
+            </button>
+
+            <button class="category-btn" data-category="logic">
+                🧠 Logic
+            </button>
+
+            <button class="category-btn" data-category="math">
+                🔢 Mathematics
+            </button>
+            <button class="category-btn" data-category="geography">
+                🌍 Geography
+            </button>
+            <button class="category-btn" data-category="history">
+                📜 History
+            </button>
+            <button class="category-btn" data-category="science">
+                🔬 Science
+            </button>
+            <button class="category-btn" data-category="language">
+                🔤 Language
+            </button>
+        </div>
+        <div class="games-grid" id="gamesGrid">
+            <!-- LOGIC -->
+            <div class="game-card" data-category="featured logic" data-game="memoryMatch">
+                <div class="icon">🧠</div>
+                <h3>Memory Match</h3>
+                <p>Improve concentration and memory skills.</p>
+                <button onclick="loadGame('memoryMatch')">
+                    Play Game
+                </button>
+            </div>
+
+            <div class="game-card" data-category="logic" data-game="ticTacToe">
+                <div class="icon">⭕</div>
+                <h3>Tic Tac Toe</h3>
+                <p>Challenge your strategy and logic.</p>
+                <button onclick="loadGame('ticTacToe')">
+                    Play Game
+                </button>
+            </div>
+
+            <div class="game-card" data-category="logic" data-game="sudokuMini">
+                <div class="icon">🧩</div>
+                <h3>Sudoku Mini</h3>
+                <p>Solve number puzzles and sharpen thinking.</p>
+                <button onclick="loadGame('sudokuMini')">
+                    Play Game
+                </button>
+            </div>
+
+            <div class="game-card" data-category="featured logic" data-game="patternPuzzle">
+                <div class="icon">🔷</div>
+                <h3>Pattern Puzzle</h3>
+                <p>Find the missing pattern or sequence.</p>
+                <button onclick="loadGame('patternPuzzle')">
+                    Play Game
+                </button>
+            </div>
+
+            <div class="game-card" data-category="logic" data-game="mazeEscape">
+                <div class="icon">🌀</div>
+                <h3>Maze Escape</h3>
+                <p>Navigate through challenging mazes.</p>
+                <button onclick="loadGame('mazeEscape')">
+                    Play Game
+                </button>
+            </div>
+
+            <div class="game-card" data-category="logic" data-game="connectTheDots">
+                <div class="icon">🔗</div>
+                <h3>Connect the Dots</h3>
+                <p>Connect points to reveal hidden shapes.</p>
+                <button onclick="loadGame('connectTheDots')">
+                    Play Game
+                </button>
+            </div>
+
+            <div class="game-card" data-category="logic" data-game="sequenceChallenge">
+                <div class="icon">📈</div>
+                <h3>Sequence Challenge</h3>
+                <p>Complete number and pattern sequences.</p>
+                <button onclick="loadGame('sequenceChallenge')">
+                    Play Game
+                </button>
+            </div>
+
+            <div class="game-card" data-category="logic" data-game="logicGridPuzzle">
+                <div class="icon">📋</div>
+                <h3>Logic Grid Puzzle</h3>
+                <p>Solve clues to complete the logic grid.</p>
+                <button onclick="loadGame('logicGridPuzzle')">
+                    Play Game
+                </button>
+            </div>
+
+            <div class="game-card" data-category="logic" data-game="towerOfHanoi">
+                <div class="icon">🗼</div>
+                <h3>Tower of Hanoi</h3>
+                <p>Move disks strategically to solve the puzzle.</p>
+                <button onclick="loadGame('towerOfHanoi')">
+                    Play Game
+                </button>
+            </div>
+
+            <div class="game-card" data-category="logic" data-game="spotTheDifference">
+                <div class="icon">🔍</div>
+                <h3>Spot the Difference</h3>
+                <p>Find differences between two images.</p>
+                <button onclick="loadGame('spotTheDifference')">
+                    Play Game
+                </button>
+            </div>
+
+            <!-- MATHEMATICS -->
+
+            <div class="game-card" data-category="featured math" data-game="quickMath">
+                <div class="icon">🚀</div>
+                <h3>Quick Math</h3>
+                <p>Solve math problems before time runs out.</p>
+                <button onclick="loadGame('quickMath')">
+                    Play Game
+                </button>
+            </div>
+
+            <div class="game-card" data-category="math" data-game="mathRacing">
+                <div class="icon">🏎️</div>
+                <h3>Math Racing</h3>
+                <p>Solve equations to speed up your race car.</p>
+                <button onclick="loadGame('mathRacing')">
+                    Play Game
+                </button>
+            </div>
+
+            <div class="game-card" data-category="math" data-game="mathBattle">
+                <div class="icon">⚔️</div>
+                <h3>Math Battle</h3>
+                <p>Defeat opponents using math skills.</p>
+                <button onclick="loadGame('mathBattle')">
+                    Play Game
+                </button>
+            </div>
+
+            <div class="game-card" data-category="featured math" data-game="multiplicationMaster">
+                <div class="icon">✖️</div>
+                <h3>Multiplication Master</h3>
+                <p>Master multiplication tables and facts.</p>
+                <button onclick="loadGame('multiplicationMaster')">
+                    Play Game
+                </button>
+            </div>
+
+            <div class="game-card" data-category="math" data-game="fractionChallenge">
+                <div class="icon">➗</div>
+                <h3>Fraction Challenge</h3>
+                <p>Solve problems involving fractions and ratios.</p>
+                <button onclick="loadGame('fractionChallenge')">
+                    Play Game
+                </button>
+            </div>
+
+            <div class="game-card" data-category="math" data-game="numberPyramid">
+                <div class="icon">🔺</div>
+                <h3>Number Pyramid</h3>
+                <p>Complete number patterns and pyramids.</p>
+                <button onclick="loadGame('numberPyramid')">
+                    Play Game
+                </button>
+            </div>
+
+            <div class="game-card" data-category="math" data-game="equationBuilder">
+                <div class="icon">🧮</div>
+                <h3>Equation Builder</h3>
+                <p>Create correct equations using numbers.</p>
+                <button onclick="loadGame('equationBuilder')">
+                    Play Game
+                </button>
+            </div>
+
+            <div class="game-card" data-category="math" data-game="mentalMathBlitz">
+                <div class="icon">⚡</div>
+                <h3>Mental Math Blitz</h3>
+                <p>Answer arithmetic questions as fast as possible.</p>
+                <button onclick="loadGame('mentalMathBlitz')">
+                    Play Game
+                </button>
+            </div>
+
+            <div class="game-card" data-category="math" data-game="geometryChallenge">
+                <div class="icon">📐</div>
+                <h3>Geometry Challenge</h3>
+                <p>Learn shapes, angles, and measurements.</p>
+                <button onclick="loadGame('geometryChallenge')">
+                    Play Game
+                </button>
+            </div>
+
+            <div class="game-card" data-category="math" data-game="countdownNumbers">
+                <div class="icon">⏱️</div>
+                <h3>Countdown Numbers</h3>
+                <p>Reach the target number using arithmetic.</p>
+                <button onclick="loadGame('countdownNumbers')">
+                    Play Game
+                </button>
+            </div>
+
+            <!-- GEOGRAPHY -->
+            <div class="game-card" data-category="featured geography" data-game="countryQuiz">
+                <div class="icon">🌎</div>
+                <h3>Country Quiz</h3>
+                <p>Test your knowledge of countries and capitals.</p>
+                <button onclick="loadGame('countryQuiz')">
+                    Play Game
+                </button>
+            </div>
+
+            <div class="game-card" data-category="featured geography" data-game="flagGuess">
+                <div class="icon">🚩</div>
+                <h3>Flag Guess</h3>
+                <p>Match flags with their countries.</p>
+                <button onclick="loadGame('flagGuess')">
+                    Play Game
+                </button>
+            </div>
+
+            <div class="game-card" data-category="geography" data-game="mapChallenge">
+                <div class="icon">🗺️</div>
+                <h3>Map Challenge</h3>
+                <p>Locate countries, cities, and landmarks.</p>
+                <button onclick="loadGame('mapChallenge')">
+                    Play Game
+                </button>
+            </div>
+
+            <div class="game-card" data-category="geography" data-game="landmarkQuiz">
+                <div class="icon">🏛️</div>
+                <h3>Landmark Quiz</h3>
+                <p>Identify famous landmarks around the world.</p>
+                <button onclick="loadGame('landmarkQuiz')">
+                    Play Game
+                </button>
+            </div>
+
+            <div class="game-card" data-category="geography" data-game="capitalCityMatch">
+                <div class="icon">🏙️</div>
+                <h3>Capital City Match</h3>
+                <p>Match countries with their capital cities.</p>
+                <button onclick="loadGame('capitalCityMatch')">
+                    Play Game
+                </button>
+            </div>
+
+            <div class="game-card" data-category="geography" data-game="continentExplorer">
+                <div class="icon">🌐</div>
+                <h3>Continent Explorer</h3>
+                <p>Explore the continents of the world.</p>
+                <button onclick="loadGame('continentExplorer')">
+                    Play Game
+                </button>
+            </div>
+
+            <div class="game-card" data-category="geography" data-game="oceanAdventure">
+                <div class="icon">🌊</div>
+                <h3>Ocean Adventure</h3>
+                <p>Learn about oceans, seas, and marine life.</p>
+                <button onclick="loadGame('oceanAdventure')">
+                    Play Game
+                </button>
+            </div>
+
+            <div class="game-card" data-category="geography" data-game="philippineProvinces">
+                <div class="icon">🇵🇭</div>
+                <h3>Philippine Provinces</h3>
+                <p>Identify provinces, regions, and capitals.</p>
+                <button onclick="loadGame('philippineProvinces')">
+                    Play Game
+                </button>
+            </div>
+
+            <div class="game-card" data-category="geography" data-game="worldWondersQuiz">
+                <div class="icon">🏆</div>
+                <h3>World Wonders Quiz</h3>
+                <p>Discover the wonders of the world.</p>
+                <button onclick="loadGame('worldWondersQuiz')">
+                    Play Game
+                </button>
+            </div>
+
+            <div class="game-card" data-category="geography" data-game="globeSpinner">
+                <div class="icon">🌏</div>
+                <h3>Globe Spinner</h3>
+                <p>Spin the globe and answer geography challenges.</p>
+                <button onclick="loadGame('globeSpinner')">
+                    Play Game
+                </button>
+            </div>
+
+
+            <!-- HISTORY -->
+            <div class="game-card" data-category="featured history" data-game="timelineChallenge">
+                <div class="icon">📅</div>
+                <h3>Timeline Challenge</h3>
+                <p>Arrange historical events in order.</p>
+                <button onclick="loadGame('timelineChallenge')">
+                    Play Game
+                </button>
+            </div>
+
+            <div class="game-card" data-category="history" data-game="historyQuiz">
+                <div class="icon">📜</div>
+                <h3>History Quiz</h3>
+                <p>Test your knowledge of world history.</p>
+                <button onclick="loadGame('historyQuiz')">
+                    Play Game
+                </button>
+            </div>
+
+            <div class="game-card" data-category="history" data-game="heroGuess">
+                <div class="icon">🎖️</div>
+                <h3>Hero Guess</h3>
+                <p>Identify famous heroes and patriots.</p>
+                <button onclick="loadGame('heroGuess')">
+                    Play Game
+                </button>
+            </div>
+
+            <div class="game-card" data-category="history" data-game="ancientWorld">
+                <div class="icon">🏺</div>
+                <h3>Ancient World</h3>
+                <p>Explore ancient civilizations and cultures.</p>
+                <button onclick="loadGame('ancientWorld')">
+                    Play Game
+                </button>
+            </div>
+
+            <div class="game-card" data-category="history" data-game="historicalEventsMatch">
+                <div class="icon">📚</div>
+                <h3>Historical Events Match</h3>
+                <p>Match events with their dates and facts.</p>
+                <button onclick="loadGame('historicalEventsMatch')">
+                    Play Game
+                </button>
+            </div>
+
+            <div class="game-card" data-category="history" data-game="philippineHistoryQuest">
+                <div class="icon">🇵🇭</div>
+                <h3>Philippine History Quest</h3>
+                <p>Discover important events in Philippine history.</p>
+                <button onclick="loadGame('philippineHistoryQuest')">
+                    Play Game
+                </button>
+            </div>
+
+            <div class="game-card" data-category="history" data-game="famousLeaders">
+                <div class="icon">👑</div>
+                <h3>Famous Leaders</h3>
+                <p>Learn about influential leaders in history.</p>
+                <button onclick="loadGame('famousLeaders')">
+                    Play Game
+                </button>
+            </div>
+
+            <div class="game-card" data-category="history" data-game="inventorsDiscoveries">
+                <div class="icon">💡</div>
+                <h3>Inventors & Discoveries</h3>
+                <p>Match inventors with their inventions.</p>
+                <button onclick="loadGame('inventorsDiscoveries')">
+                    Play Game
+                </button>
+            </div>
+
+            <div class="game-card" data-category="history" data-game="historyPuzzle">
+                <div class="icon">🧩</div>
+                <h3>History Puzzle</h3>
+                <p>Solve puzzles based on historical events.</p>
+                <button onclick="loadGame('historyPuzzle')">
+                    Play Game
+                </button>
+            </div>
+
+            <div class="game-card" data-category="history" data-game="civilizationBuilder">
+                <div class="icon">🏛️</div>
+                <h3>Civilization Builder</h3>
+                <p>Build and grow an ancient civilization.</p>
+                <button onclick="loadGame('civilizationBuilder')">
+                    Play Game
+                </button>
+            </div>
+
+            <!-- SCIENCE -->
+            <div class="game-card" data-category="featured science" data-game="scienceQuiz">
+                <div class="icon">🔬</div>
+                <h3>Science Quiz</h3>
+                <p>Test your knowledge of science facts.</p>
+                <button onclick="loadGame('scienceQuiz')">
+                    Play Game
+                </button>
+            </div>
+
+            <div class="game-card" data-category="science" data-game="planetExplorer">
+                <div class="icon">🪐</div>
+                <h3>Planet Explorer</h3>
+                <p>Discover planets and the solar system.</p>
+                <button onclick="loadGame('planetExplorer')">
+                    Play Game
+                </button>
+            </div>
+
+            <div class="game-card" data-category="science" data-game="humanBody">
+                <div class="icon">🫀</div>
+                <h3>Human Body</h3>
+                <p>Learn about organs and body systems.</p>
+                <button onclick="loadGame('humanBody')">
+                    Play Game
+                </button>
+            </div>
+
+            <div class="game-card" data-category="science" data-game="labChallenge">
+                <div class="icon">⚗️</div>
+                <h3>Lab Challenge</h3>
+                <p>Answer questions from virtual experiments.</p>
+                <button onclick="loadGame('labChallenge')">
+                    Play Game
+                </button>
+            </div>
+
+            <div class="game-card" data-category="science" data-game="animalKingdom">
+                <div class="icon">🐾</div>
+                <h3>Animal Kingdom</h3>
+                <p>Identify animals and their habitats.</p>
+                <button onclick="loadGame('animalKingdom')">
+                    Play Game
+                </button>
+            </div>
+
+            <div class="game-card" data-category="science" data-game="ecosystemAdventure">
+                <div class="icon">🌱</div>
+                <h3>Ecosystem Adventure</h3>
+                <p>Explore food chains and ecosystems.</p>
+                <button onclick="loadGame('ecosystemAdventure')">
+                    Play Game
+                </button>
+            </div>
+
+            <div class="game-card" data-category="science" data-game="physicsPlayground">
+                <div class="icon">⚙️</div>
+                <h3>Physics Playground</h3>
+                <p>Learn forces, motion, and energy.</p>
+                <button onclick="loadGame('physicsPlayground')">
+                    Play Game
+                </button>
+            </div>
+
+            <div class="game-card" data-category="science" data-game="chemistryMatch">
+                <div class="icon">🧪</div>
+                <h3>Chemistry Match</h3>
+                <p>Match elements, symbols, and compounds.</p>
+                <button onclick="loadGame('chemistryMatch')">
+                    Play Game
+                </button>
+            </div>
+
+            <div class="game-card" data-category="science" data-game="weatherWatch">
+                <div class="icon">⛅</div>
+                <h3>Weather Watch</h3>
+                <p>Learn about weather patterns and climate.</p>
+                <button onclick="loadGame('weatherWatch')">
+                    Play Game
+                </button>
+            </div>
+
+            <div class="game-card" data-category="science" data-game="cellExplorer">
+                <div class="icon">🔬</div>
+                <h3>Cell Explorer</h3>
+                <p>Discover the parts of plant and animal cells.</p>
+                <button onclick="loadGame('cellExplorer')">
+                    Play Game
+                </button>
+            </div>
+
+            <!-- FEATURED GAMES -->
+            <div class="game-card" data-category="featured logic" data-game="memoryMatch">
+                <div class="icon">🧠</div>
+                <h3>Memory Match</h3>
+                <p>Improve concentration and memory skills.</p>
+                <button onclick="loadGame('memoryMatch')">Play Game</button>
+            </div>
+
+            <div class="game-card" data-category="featured language" data-game="wordSearch">
+                <div class="icon">🔍</div>
+                <h3>Word Search</h3>
+                <p>Find hidden words and expand vocabulary.</p>
+                <button onclick="loadGame('wordSearch')">Play Game</button>
+            </div>
+
+            <div class="game-card" data-category="featured math" data-game="quickMath">
+                <div class="icon">🚀</div>
+                <h3>Quick Math</h3>
+                <p>Solve math problems before time runs out.</p>
+                <button onclick="loadGame('quickMath')">Play Game</button>
+            </div>
+
+            <div class="game-card" data-category="featured geography" data-game="countryQuiz">
+                <div class="icon">🌎</div>
+                <h3>Country Quiz</h3>
+                <p>Test your knowledge of countries and capitals.</p>
+                <button onclick="loadGame('countryQuiz')">Play Game</button>
+            </div>
+
+            <div class="game-card" data-category="featured geography" data-game="flagGuess">
+                <div class="icon">🚩</div>
+                <h3>Flag Guess</h3>
+                <p>Match flags with the correct countries.</p>
+                <button onclick="loadGame('flagGuess')">Play Game</button>
+            </div>
+
+            <div class="game-card" data-category="featured history" data-game="timelineChallenge">
+                <div class="icon">📅</div>
+                <h3>Timeline Challenge</h3>
+                <p>Arrange historical events in order.</p>
+                <button onclick="loadGame('timelineChallenge')">Play Game</button>
+            </div>
+
+            <div class="game-card" data-category="featured science" data-game="scienceQuiz">
+                <div class="icon">🔬</div>
+                <h3>Science Quiz</h3>
+                <p>Challenge your science knowledge.</p>
+                <button onclick="loadGame('scienceQuiz')">Play Game</button>
+            </div>
+
+            <div class="game-card" data-category="featured language" data-game="spellingBee">
+                <div class="icon">🐝</div>
+                <h3>Spelling Bee</h3>
+                <p>Improve your spelling skills.</p>
+                <button onclick="loadGame('spellingBee')">Play Game</button>
+            </div>
+
+            <div class="game-card" data-category="featured logic" data-game="patternPuzzle">
+                <div class="icon">🔷</div>
+                <h3>Pattern Puzzle</h3>
+                <p>Find the missing pattern.</p>
+                <button onclick="loadGame('patternPuzzle')">Play Game</button>
+            </div>
+
+            <div class="game-card" data-category="featured math" data-game="multiplicationMaster">
+                <div class="icon">✖️</div>
+                <h3>Multiplication Master</h3>
+                <p>Master multiplication tables.</p>
+                <button onclick="loadGame('multiplicationMaster')">Play Game</button>
+            </div>
+
+            <!-- LANGUAGE -->
+            <div class="game-card" data-category="featured language" data-game="wordSearch">
+                <div class="icon">🔍</div>
+                <h3>Word Search</h3>
+                <p>Find hidden words in a puzzle grid.</p>
+                <button onclick="loadGame('wordSearch')">
+                    Play Game
+                </button>
+            </div>
+
+            <div class="game-card" data-category="featured language" data-game="spellingBee">
+                <div class="icon">🐝</div>
+                <h3>Spelling Bee</h3>
+                <p>Improve spelling and vocabulary skills.</p>
+                <button onclick="loadGame('spellingBee')">
+                    Play Game
+                </button>
+            </div>
+
+            <div class="game-card" data-category="language" data-game="synonymMatch">
+                <div class="icon">📚</div>
+                <h3>Synonym Match</h3>
+                <p>Match words with similar meanings.</p>
+                <button onclick="loadGame('synonymMatch')">
+                    Play Game
+                </button>
+            </div>
+
+            <div class="game-card" data-category="language" data-game="sentenceBuilder">
+                <div class="icon">✍️</div>
+                <h3>Sentence Builder</h3>
+                <p>Arrange words to form sentences.</p>
+                <button onclick="loadGame('sentenceBuilder')">
+                    Play Game
+                </button>
+            </div>
+
+            <div class="game-card" data-category="language" data-game="crosswordChallenge">
+                <div class="icon">📝</div>
+                <h3>Crossword Challenge</h3>
+                <p>Solve clues and complete the crossword.</p>
+                <button onclick="loadGame('crosswordChallenge')">
+                    Play Game
+                </button>
+            </div>
+
+            <div class="game-card" data-category="language" data-game="vocabularyRace">
+                <div class="icon">🏃</div>
+                <h3>Vocabulary Race</h3>
+                <p>Answer quickly to earn points.</p>
+                <button onclick="loadGame('vocabularyRace')">
+                    Play Game
+                </button>
+            </div>
+
+            <div class="game-card" data-category="language" data-game="grammarQuest">
+                <div class="icon">📖</div>
+                <h3>Grammar Quest</h3>
+                <p>Master grammar through challenges.</p>
+                <button onclick="loadGame('grammarQuest')">
+                    Play Game
+                </button>
+            </div>
+
+            <div class="game-card" data-category="language" data-game="rhymeTime">
+                <div class="icon">🎵</div>
+                <h3>Rhyme Time</h3>
+                <p>Find words that rhyme together.</p>
+                <button onclick="loadGame('rhymeTime')">
+                    Play Game
+                </button>
+            </div>
+
+            <div class="game-card" data-category="language" data-game="unscrambleWords">
+                <div class="icon">🔤</div>
+                <h3>Unscramble Words</h3>
+                <p>Rearrange letters to make words.</p>
+                <button onclick="loadGame('unscrambleWords')">
+                    Play Game
+                </button>
+            </div>
+
+            <div class="game-card" data-category="language" data-game="idiomAdventure">
+                <div class="icon">💬</div>
+                <h3>Idiom Adventure</h3>
+                <p>Learn common idioms and meanings.</p>
+                <button onclick="loadGame('idiomAdventure')">
+                    Play Game
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section id="gameArea">
+        <div class="game-header">
+            <h2 id="currentGameTitle">Select a Game</h2>
+            <button id="closeGameBtn" class="danger-btn" style="display:none;">Close Game</button>
+        </div>
+
+        <div id="gameContainer">
+            <div class="welcome-card">
+                <h1> Welcome to the Entertainment Room</h1>
+                <p>
+                    Choose a category,
+                    select a game,
+                    and start learning.
+                </p>
+                <br>
+
+                <h3>Available Categories</h3>
+
+                <p>
+                    🧠 Logic •
+                    🧠 Featured •
+                    🔢 Mathematics •
+                    🌍 Geography •
+                    📜 History •
+                    🔬 Science •
+                    🔤 Language
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>© 2026 Bagaas National High School</p>
+        <p>Entertainment Room</p>
+    </footer>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
