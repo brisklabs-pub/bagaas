@@ -1,0 +1,252 @@
+/* ===========================
+   MEMORY MATCH
+=========================== */
+.memory-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    max-width: 500px;
+    margin: 20px auto;
+}
+.memory-card {
+    position: relative;
+    aspect-ratio: 1;
+    cursor: pointer;
+    border-radius: 12px;
+    overflow: hidden;
+}
+.memory-card-front,
+.memory-card-back {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: bold;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+.memory-card-front {
+    background: #2563eb;
+    color: white;
+}
+.memory-card-back {
+    background: white;
+    border: 2px solid #2563eb;
+    transform: rotateY(180deg);
+    opacity: 0;
+}
+.memory-card.memory-flipped .memory-card-front,
+.memory-card.memory-matched .memory-card-front {
+    opacity: 0;
+}
+.memory-card.memory-flipped .memory-card-back,
+.memory-card.memory-matched .memory-card-back {
+    opacity: 1;
+    transform: rotateY(0);
+}
+.memory-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+/* ===========================
+   TIC TAC TOE
+=========================== */
+
+.tictactoe-game {
+    max-width: 400px;
+    margin: auto;
+    text-align: center;
+}
+.tictactoe-status {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.tictactoe-board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+.tictactoe-cell {
+    aspect-ratio: 1;
+    background: white;
+    border: 2px solid #2563eb;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+    transition: 0.2s;
+}
+.tictactoe-cell:hover {
+    background: #eff6ff;
+}
+
+/* ===========================
+   SUDOKU MINI
+=========================== */
+.sudoku-game {
+    max-width: 350px;
+    margin: auto;
+    text-align: center;
+}
+.sudoku-instructions {
+    margin-bottom: 15px;
+}
+.sudoku-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px;
+    margin: 20px 0;
+}
+.sudoku-cell {
+    width: 100%;
+    aspect-ratio: 1;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border: 2px solid #2563eb;
+    border-radius: 8px;
+}
+.sudoku-cell-fixed {
+    background: #e5e7eb;
+}
+.sudoku-message {
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+/* ===========================
+   SHARED GAME COMPONENTS
+=========================== */
+
+.game-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+.game-btn {
+    flex: 1;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 10px;
+    background: #2563eb;
+    color: white;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.game-btn:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+}
+.game-btn:active {
+    transform: translateY(0);
+}
+
+/* ===========================
+   MOBILE
+=========================== */
+@media (max-width: 768px) {
+    .memory-grid { gap: 8px; }
+    .memory-card-front,
+    .memory-card-back { font-size: 1.5rem; }
+    .game-actions { flex-direction: column; }
+    .game-btn { width: 100%; }
+}
+.patternpuzzle-game {
+    max-width: 500px;
+    margin: auto;
+    text-align: center;
+}
+.patternpuzzle-score {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.patternpuzzle-question {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.patternpuzzle-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+.patternpuzzle-option {
+    padding: 14px;
+    border: 2px solid #2563eb;
+    border-radius: 10px;
+    background: white;
+    cursor: pointer;
+    font-size: 1rem;
+}
+.patternpuzzle-option:hover {
+    background: #eff6ff;
+}
+.patternpuzzle-message {
+    min-height: 30px;
+    margin-top: 20px;
+    font-weight: bold;
+}
+/* Maze Escape */
+.mazeescape-game {
+    max-width: 450px;
+    margin: auto;
+    text-align: center;
+}
+.mazeescape-info {
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+.mazeescape-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 60px);
+    gap: 4px;
+    justify-content: center;
+}
+.mazeescape-tile {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background: #f3f4f6;
+}
+.mazeescape-wall {
+    background: #1f2937;
+}
+.mazeescape-player {
+    background: #dbeafe;
+}
+.mazeescape-exit {
+    background: #dcfce7;
+}
+.mazeescape-controls {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+.mazeescape-btn {
+    width: 70px;
+    height: 50px;
+    border: none;
+    border-radius: 8px;
+    background: #2563eb;
+    color: white;
+    cursor: pointer;
+}

@@ -106,12 +106,12 @@ body {
     justify-content: space-between;
     min-height: 200px;
     transition: all 0.25s ease;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .game-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
 .game-card .icon {
@@ -328,4 +328,25 @@ body {
 #gameContainer {
     background: var(--card);
     box-shadow: 0 10px 25px rgba(0, 0, 0, .08)
+}
+
+.game-btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    background: #2563eb;
+    color: white;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.game-btn:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+}
+
+.game-btn:active {
+    transform: translateY(0);
 }
