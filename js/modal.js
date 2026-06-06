@@ -52,6 +52,8 @@ const facilityGrid = document.getElementById("facilityGrid");
 
 let allArticles = [];
 let allAnnouncements = [];
+
+let facilities = [];
 let currentFacility = 0;
 
 // =========================================
@@ -199,8 +201,7 @@ async function loadArticles() {
 //  FACILITIES
 // =========================================
 async function loadFacilities() {
-
-  const facilities = await fetchTable("facilities", {order: "created_at.desc"} );
+  facilities = await fetchTable("facilities", {order: "created_at.desc"} );
   console.log("Loaded facilities:", facilities);
   facilities.forEach(
     (facility, index) => {
@@ -240,8 +241,8 @@ function prevFacility() {
 }
 function updateFacilityModal() {
   const facility = facilities[currentFacility];
-  document.getElementById("facilityModalImage").src = facility.image;
-  document.getElementById("facilityModalTitle").innerText = facility.title;
+  document.getElementById("facilityModalImage").src = facility.thumbnail;
+  document.getElementById("facilityModalTitle").innerText = facility.name;
 }
 
 // =========================================

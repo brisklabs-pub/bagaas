@@ -514,45 +514,89 @@ const patternQuestions = [
         answer: "G"
     }
 ];
+let patternScore = 0;
+let patternIndex = 0;
+let patternGameQuestions = [];
+
 function loadPatternPuzzle() {
     const gameContainer = document.getElementById('gameContainer');
     const title = document.getElementById('currentGameTitle');
     title.textContent = '🔷 Pattern Puzzle';
     gameContainer.innerHTML = `
         <div class="patternpuzzle-game">
-
             <div class="patternpuzzle-score">
                 Score:
                 <span id="patternScore">0</span>
             </div>
-
             <div
                 class="patternpuzzle-question"
                 id="patternQuestion">
             </div>
-
             <div
                 class="patternpuzzle-options"
                 id="patternOptions">
             </div>
-
             <div
                 class="patternpuzzle-message"
                 id="patternMessage">
             </div>
 
             <div class="game-actions">
-
                 <button
                     class="game-btn"
                     onclick="loadPatternPuzzle()">
                     Restart Game
                 </button>
-
             </div>
-
         </div>
     `;
 
     startPatternPuzzle();
+}
+function startPatternPuzzle() {
+    patternScore = 0;
+    patternIndex = 0;
+    patternGameQuestions =
+        [...patternQuestions]
+            .sort(() => Math.random() - 0.5);
+    showPatternQuestion();
+}
+function showPatternQuestion() {
+    if (patternIndex >= patternGameQuestions.length) {
+        document.getElementById('patternQuestion').innerHTML =`🎉 Finished! Final Score: ${patternScore}`;
+        document.getElementById('patternOptions').innerHTML = '';
+        return;
+    }
+
+    const question = patternGameQuestions[patternIndex];
+    document.getElementById('patternQuestion').textContent = question.pattern;
+    document.getElementById('patternMessage').textContent = '';
+    const optionsContainer =
+        document.getElementById(
+            'patternOptions'
+        );
+
+    optionsContainer.innerHTML = '';
+    question.options.forEach(option => {
+        const button = document.createElement('button');
+        button.className = 'patternpuzzle-option';
+        button.textContent = option;
+        button.addEventListener('click', () => {
+                if (option === question.answer) {
+                    patternScore++;
+                    document.getElementById('patternMessage').textContent = '✅ Correct!';
+
+                } else {
+                    document.getElementById('patternMessage').textContent = `❌ Correct Answer: ${question.answer}`;
+                }
+                document.getElementById('patternScore').textContent = patternScore;
+                setTimeout(() => {
+                    patternIndex++;
+                    showPatternQuestion();
+                }, 1200);
+            }
+        );
+        optionsContainer.appendChild(button);
+
+    });
 }

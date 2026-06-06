@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -52,7 +53,8 @@
                     <p> Choose a category, select a game, and start learning.</p>
                     <br>
                     <h3>Available Categories</h3>
-                    <p> 🧠 Logic • 🧠 Featured • 🔢 Mathematics • 🌍 Geography • 📜 History • 🔬 Science • 🔤 Language</p>
+                    <p> 🧠 Logic • 🧠 Featured • 🔢 Mathematics • 🌍 Geography • 📜 History • 🔬 Science • 🔤 Language
+                    </p>
                 </div>
             </div>
         </section>
@@ -87,9 +89,8 @@
             </button>
         </div>
         <div class="games-grid" id="gamesGrid">
-            
             <!-- LOGIC -->
-            <div class="game-card" data-category="featured logic" data-game="memoryMatch">
+            <div class="game-card" data-category="logic" data-game="memoryMatch">
                 <div class="icon">🧠</div>
                 <h3>Memory Match</h3>
                 <p>Improve concentration and memory skills.</p>
@@ -116,47 +117,11 @@
                 </button>
             </div>
 
-            <div class="game-card" data-category="featured logic" data-game="patternPuzzle">
-                <div class="icon">🔷</div>
-                <h3>Pattern Puzzle</h3>
-                <p>Find the missing pattern or sequence.</p>
-                <button onclick="loadGame('patternPuzzle')">
-                    Play Game
-                </button>
-            </div>
-
             <div class="game-card" data-category="logic" data-game="mazeEscape">
                 <div class="icon">🌀</div>
                 <h3>Maze Escape</h3>
-                <p>Navigate through challenging mazes.</p>
+                <p>Navigate random mazes and reach the exit.</p>
                 <button onclick="loadGame('mazeEscape')">
-                    Play Game
-                </button>
-            </div>
-
-            <div class="game-card" data-category="logic" data-game="connectTheDots">
-                <div class="icon">🔗</div>
-                <h3>Connect the Dots</h3>
-                <p>Connect points to reveal hidden shapes.</p>
-                <button onclick="loadGame('connectTheDots')">
-                    Play Game
-                </button>
-            </div>
-
-            <div class="game-card" data-category="logic" data-game="sequenceChallenge">
-                <div class="icon">📈</div>
-                <h3>Sequence Challenge</h3>
-                <p>Complete number and pattern sequences.</p>
-                <button onclick="loadGame('sequenceChallenge')">
-                    Play Game
-                </button>
-            </div>
-
-            <div class="game-card" data-category="logic" data-game="logicGridPuzzle">
-                <div class="icon">📋</div>
-                <h3>Logic Grid Puzzle</h3>
-                <p>Solve clues to complete the logic grid.</p>
-                <button onclick="loadGame('logicGridPuzzle')">
                     Play Game
                 </button>
             </div>
@@ -170,18 +135,55 @@
                 </button>
             </div>
 
-            <div class="game-card" data-category="logic" data-game="spotTheDifference">
-                <div class="icon">🔍</div>
-                <h3>Spot the Difference</h3>
-                <p>Find differences between two images.</p>
-                <button onclick="loadGame('spotTheDifference')">
+            <div class="game-card" data-category="logic" data-game="simonSays">
+                <div class="icon">🎯</div>
+                <h3>Simon Says</h3>
+                <p>Remember and repeat the growing sequence.</p>
+                <button onclick="loadGame('simonSays')">
                     Play Game
                 </button>
             </div>
 
+            <div class="game-card" data-category="logic" data-game="minesweeperMini">
+                <div class="icon">💣</div>
+                <h3>Minesweeper Mini</h3>
+                <p>Clear the board without hitting hidden mines.</p>
+                <button onclick="loadGame('minesweeperMini')">
+                    Play Game
+                </button>
+            </div>
+
+            <div class="game-card" data-category="logic" data-game="codeBreaker">
+                <div class="icon">🔐</div>
+                <h3>Code Breaker</h3>
+                <p>Crack the secret code using logical clues.</p>
+                <button onclick="loadGame('codeBreaker')">
+                    Play Game
+                </button>
+            </div>
+
+            <div class="game-card" data-category="logic" data-game="numberMemory">
+                <div class="icon">🔢</div>
+                <h3>Number Memory</h3>
+                <p>Remember increasingly longer number sequences.</p>
+                <button onclick="loadGame('numberMemory')">
+                    Play Game
+                </button>
+            </div>
+
+            <div class="game-card" data-category="logic" data-game="reactionTest">
+                <div class="icon">⚡</div>
+                <h3>Reaction Test</h3>
+                <p>Measure your speed and reaction time.</p>
+                <button onclick="loadGame('reactionTest')">
+                    Play Game
+                </button>
+            </div>
+
+
             <!-- MATHEMATICS -->
 
-            <div class="game-card" data-category="featured math" data-game="quickMath">
+            <div class="game-card" data-category="math" data-game="quickMath">
                 <div class="icon">🚀</div>
                 <h3>Quick Math</h3>
                 <p>Solve math problems before time runs out.</p>
@@ -208,7 +210,7 @@
                 </button>
             </div>
 
-            <div class="game-card" data-category="featured math" data-game="multiplicationMaster">
+            <div class="game-card" data-category="math" data-game="multiplicationMaster">
                 <div class="icon">✖️</div>
                 <h3>Multiplication Master</h3>
                 <p>Master multiplication tables and facts.</p>
@@ -272,7 +274,7 @@
             </div>
 
             <!-- GEOGRAPHY -->
-            <div class="game-card" data-category="featured geography" data-game="countryQuiz">
+            <div class="game-card" data-category="geography" data-game="countryQuiz">
                 <div class="icon">🌎</div>
                 <h3>Country Quiz</h3>
                 <p>Test your knowledge of countries and capitals.</p>
@@ -281,7 +283,7 @@
                 </button>
             </div>
 
-            <div class="game-card" data-category="featured geography" data-game="flagGuess">
+            <div class="game-card" data-category="geography" data-game="flagGuess">
                 <div class="icon">🚩</div>
                 <h3>Flag Guess</h3>
                 <p>Match flags with their countries.</p>
