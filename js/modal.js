@@ -45,6 +45,9 @@ async function fetchTable(table, { select = "*", filters = "", order = "", limit
 const heroSlides = document.getElementById("heroSlides");
 const websiteTitle = document.getElementById("websiteTitle");
 const websiteSubtitle = document.getElementById("websiteSubtitle");
+const websiteAbout = document.getElementById("websiteAbout");
+const websiteTotalStudents = document.getElementById("websiteTotalStudents");
+const websiteTotalFacilities = document.getElementById("websiteTotalFacilities");
 
 const newsGrid = document.getElementById("newsGrid");
 const announcementGrid = document.getElementById("announcementGrid");
@@ -85,6 +88,9 @@ async function loadWebsite() {
     const website = await fetchTable("website", {order: "created_at.desc"} );
     websiteTitle.textContent = website[0]?.title || "Building Future Leaders Through Quality Education";
     websiteSubtitle.textContent = website[0]?.sub_title || "Empowering students with innovation, leadership, and academic excellence for a brighter tomorrow.";
+    websiteAbout.textContent = website[0]?.about || "About our institution...";
+    websiteTotalStudents.textContent = website[0]?.student_count || "0";
+    websiteTotalFacilities.textContent = website[0]?.faculty_count || "0";
     populateHeroImages( website[0]?.hero_images || []);
     console.log("Loaded website data:", website);
   } catch (error) {
