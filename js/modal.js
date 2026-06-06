@@ -243,6 +243,7 @@ function updateFacilityModal() {
   const facility = facilities[currentFacility];
   document.getElementById("facilityModalImage").src = facility.thumbnail;
   document.getElementById("facilityModalTitle").innerText = facility.name;
+  document.getElementById("facilityModalDesc").innerText = facility.content;
 }
 
 // =========================================
