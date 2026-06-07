@@ -92,7 +92,6 @@ async function loadWebsite() {
     websiteTotalStudents.textContent = website[0]?.student_count || "0";
     websiteTotalFacilities.textContent = website[0]?.faculty_count || "0";
     populateHeroImages( website[0]?.hero_images || []);
-    console.log("Loaded website data:", website);
   } catch (error) {
     console.error("Failed loading website data:", error);
   }
@@ -178,7 +177,6 @@ async function loadAnnouncements() {
 async function loadArticles() {
   const articles = await fetchTable("articles", {order: "created_at.desc"} );
   allArticles = articles;
-  console.log("Loaded articles:", articles);
   articles.forEach((article) => {
     const card = document.createElement("div");
     card.className = "news-card";
@@ -208,7 +206,6 @@ async function loadArticles() {
 // =========================================
 async function loadFacilities() {
   facilities = await fetchTable("facilities", {order: "created_at.desc"} );
-  console.log("Loaded facilities:", facilities);
   facilities.forEach(
     (facility, index) => {
       const item = document.createElement("div");
@@ -333,16 +330,6 @@ function openContentFromUrl() {
       );
     }
   }
-}
-
-// =========================================
-//  COPY LINK
-// =========================================
-function copyLink() {
-  navigator.clipboard.writeText(
-    window.location.href
-  );
-  alert("Link copied!");
 }
 
 // LOADER

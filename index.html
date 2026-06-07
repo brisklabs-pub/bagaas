@@ -59,6 +59,9 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="apple-mobile-web-app-title" content="MSPC" />
 
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
     <!-- STRUCTURED DATA -->
     <script type="application/ld+json">
         {
@@ -121,9 +124,7 @@
                 <h2 id="websiteTitle"></h2>
                 <p id="websiteSubtitle"></p>
             </div>
-
         </div>
-
     </section>
 
     <!-- ANNOUNCEMENTS -->
@@ -144,7 +145,6 @@
         </div>
 
     </section>
-
 
     <!-- ARTICLES -->
     <section id="articles">
@@ -182,7 +182,6 @@
                 <div class="about-image">
                     <img src="https://picsum.photos/1200/900?random=41" alt="Malinao School for Philippine Craftsmen" />
                 </div>
-
                 <!-- CONTENT -->
                 <div class="about-content">
                     <span class="about-tag">ABOUT BAGAAS</span>
@@ -344,17 +343,24 @@
                         Share this article
                     </div>
                     <div class="content-modal-actions">
-                        <button class="share-btn" onclick="shareFacebook()">
+                        <button class="share-btn facebook-btn" onclick="shareFacebook()">
+                            <i class="fab fa-facebook-f"></i>
                             Facebook
                         </button>
-                        <button class="share-btn" onclick="shareTwitter()">
-                            Twitter
-                        </button>
-                        <button class="share-btn" onclick="shareEmail()">
+
+                        <button class="share-btn email-btn" onclick="openEmail()">
+                            <i class="fas fa-envelope"></i>
                             Email
                         </button>
-                        <button class="share-btn" onclick="copyLink()">
+
+                        <button class="share-btn copy-btn" onclick="copyLink()">
+                            <i class="fas fa-link"></i>
                             Copy Link
+                        </button>
+
+                        <button class="share-btn native-btn" onclick="shareArticle()">
+                            <i class="fas fa-share-alt"></i>
+                            Share
                         </button>
                     </div>
                 </div>
@@ -364,6 +370,7 @@
 
     <!-- Script -->
     <script src="./js/modal.js"></script>
+    <script src="./js/action.js"></script>
 
     <script>
         function toggleMenu() {

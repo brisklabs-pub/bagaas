@@ -147,22 +147,32 @@
 }
 
 .share-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
     border: none;
-    padding: 14px 24px;
-    border-radius: 999px;
-    background: #f1f5f9;
-    color: #0f172a;
-    font-size: 14px;
-    font-weight: 700;
+    border-radius: 10px;
+    color: white;
+    font-weight: 600;
     cursor: pointer;
-    transition: .2s;
+    transition: all .2s ease;
 }
 
 .share-btn:hover {
-    background: var(--modal-primary);
-    color: #fff;
     transform: translateY(-2px);
-    box-shadow: 0 12px 28px rgba(37,99,235,.3);
+}
+.facebook-btn {
+    background: #1877f2;
+}
+.email-btn {
+    background: #ea4335;
+}
+.copy-btn {
+    background: #475569;
+}
+.native-btn {
+    background: #0f766e;
 }
 
 .content-modal-close {

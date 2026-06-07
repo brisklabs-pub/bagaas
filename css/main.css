@@ -182,16 +182,16 @@ header {
   position: absolute;
   inset: 0;
   background-size: cover;
-  background-position: center;
+  background-position:bottom;
   animation: slideShow 18s infinite;
 }
 
 .hero-slide {
-    position: absolute;
-    inset: 0;
-    background-size: cover;
-    background-position: center;
-    animation: slideShow 18s infinite;
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position:center;
+  animation: slideShow 18s infinite;
 }
 
 @keyframes slideShow {
