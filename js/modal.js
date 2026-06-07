@@ -46,6 +46,7 @@ const heroSlides = document.getElementById("heroSlides");
 const websiteTitle = document.getElementById("websiteTitle");
 const websiteSubtitle = document.getElementById("websiteSubtitle");
 const websiteAbout = document.getElementById("websiteAbout");
+const aboutThumbnail = document.getElementById("aboutThumbnail");
 const websiteTotalStudents = document.getElementById("websiteTotalStudents");
 const websiteTotalFacilities = document.getElementById("websiteTotalFacilities");
 
@@ -92,6 +93,8 @@ async function loadWebsite() {
     websiteTotalStudents.textContent = website[0]?.student_count || "0";
     websiteTotalFacilities.textContent = website[0]?.faculty_count || "0";
     populateHeroImages( website[0]?.hero_images || []);
+    aboutThumbnail.src =  website[0]?.about_image.url ?? "https://picsum.photos/1200/900?random=41"
+
   } catch (error) {
     console.error("Failed loading website data:", error);
   }
