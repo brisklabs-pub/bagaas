@@ -54,6 +54,10 @@ const newsGrid = document.getElementById("newsGrid");
 const announcementGrid = document.getElementById("announcementGrid");
 const facilityGrid = document.getElementById("facilityGrid");
 
+const address = document.getElementById("schoolAddress");
+const phone = document.getElementById("schoolPhone");
+const email = document.getElementById("schoolEmail");
+
 let allArticles = [];
 let allAnnouncements = [];
 
@@ -92,8 +96,12 @@ async function loadWebsite() {
     websiteAbout.textContent = website[0]?.about || "About our institution...";
     websiteTotalStudents.textContent = website[0]?.student_count || "0";
     websiteTotalFacilities.textContent = website[0]?.faculty_count || "0";
-    populateHeroImages( website[0]?.hero_images || []);
-    aboutThumbnail.src =  website[0]?.about_image.url ?? "https://picsum.photos/1200/900?random=41"
+    populateHeroImages(website[0]?.hero_images || []);
+    aboutThumbnail.src = website[0]?.about_image.url ?? "https://picsum.photos/1200/900?random=41"
+
+    address.textContent = website[0]?.address ?? "N/A"
+    phone.textContent = website[0]?.phone_number ?? "N/A"
+    email.textContent = website[0]?.email ?? "N/A"
 
   } catch (error) {
     console.error("Failed loading website data:", error);
